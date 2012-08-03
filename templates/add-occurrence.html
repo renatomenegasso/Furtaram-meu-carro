@@ -1,0 +1,57 @@
+<div class="lightbox-inner">
+	<h2>Adicionar roubo</h2>
+
+	<form method="post" action="/add-occurrence-post" class="unrequired">
+		<fieldset>
+			<legend>Dados do roubo</legend>
+
+			<div class="clearfix">
+				<label class="required">*Endereço:</label>
+				<input type="text" name="street" class="required" />
+
+				<label class="number">Nº:</label>
+				<input type="text" name="number" class="number" />
+			</div>
+
+			<label>Data:</label>
+			<input type="text" name="date" />
+		</fieldset>
+
+		<fieldset>
+			<legend>Dados do veículo</legend>
+			
+			<div class="clearfix">
+				<label>Marca:</label>
+				<input type="text" name="brand" />
+			</div>
+
+			<div class="clearfix">
+				<label>Modelo:</label>
+				<input type="text" name="model" />
+			</div>
+
+			<div class="clearfix">
+				<label>Cor:</label>
+				<input type="text" name="model" />
+			</div>
+
+			<div class="clearfix">
+				<label>Ano do modelo:</label>
+				<input type="text" name="model_year" />
+			</div>
+
+			<div class="clearfix">
+				<label>Placa:</label>
+				<input type="text" name="license_plate" />
+			</div>
+
+			<div class="clearfix">
+				<label>Outros:</label>
+				<textarea></textarea>
+			</div>
+		</fieldset>
+
+		<input type="submit" class="btn big transition" value="Salvar" />
+
+	</form>
+</div>
