@@ -1,4 +1,6 @@
-.lightbox-container .lightbox-content{border-radius:10px;}
+.lightbox-container .lightbox-content{
+	border-radius:10px;
+}
 
 .lightbox-container .tl, .lightbox-container .bl, .lightbox-container .br, .lightbox-container .lightbox-close {
 	background-image: url(http://image.buscape.com/bui-bp7/lightbox/lightbox_borders.png);
