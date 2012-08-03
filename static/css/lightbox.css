@@ -1,0 +1,37 @@
+.lightbox-container .lightbox-content{border-radius:10px;}
+
+.lightbox-container .tl, .lightbox-container .bl, .lightbox-container .br, .lightbox-container .lightbox-close {
+	background-image: url(http://image.buscape.com/bui-bp7/lightbox/lightbox_borders.png);
+	border:none;
+	height:15px;
+	position:absolute;
+	width:15px;
+}
+
+.lightbox-container .lightbox-wrapper{
+	background-image:url(http://image.buscape.com/bui-bp7/lightbox/lightbox_inner.png);
+}
+
+.lightbox-container .t, .lightbox-container .b, .lightbox-container .l, .lightbox-container .r{
+	background-image:url(http://image.buscape.com/bui-bp7/lightbox/lightbox_inner.png);
+	position:absolute;
+}
+
+.lightbox-container .t{ width:100%; height:15px; top:-15px; left:0px;}
+.lightbox-container .b{ width:100%; height:15px; bottom:-15px; left:0px;}
+.lightbox-container .l{ width:15px; height:100%; top:0px; left:-15px;}
+.lightbox-container .r{ width:15px; height:100%; top:0px; right:-15px;}
+
+.lightbox-container .tl{background-position: 0 -11px; top:-15px; left:-15px;}
+.lightbox-container .tr .lightbox-close-tr{
+	width:41px;
+	height:41px;
+	top: -27px;
+	right: -30px;
+	background-position:-45px -41px ;
+	text-indent:-9999em;
+	outline-width:0;
+	display:block;
+}
+.lightbox-container .bl{background-position: 0 -26px;bottom:-15px;left:-15px;}
+.lightbox-container .br{background-position: -15px -26px;bottom:-15px;right:-15px;}

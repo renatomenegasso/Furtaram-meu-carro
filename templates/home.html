@@ -1,4 +1,23 @@
 {% extends "includes/wrapper.html" %}
 {% block content %}
-	teste home
+	
+	<div id="main-message">
+		<p class="big">Informe onde seu carro foi roubado, e ajude a <strong class="highlight">evitar mais roubos</strong>.</p>
+		<button id="add-occurrence" class="big transition btn">Informar roubo</button>
+	</div>
+
+	<div id="occurences-map" class="fl">
+		<div class="description">Veja abaixo os lugares com maior incidência de roubo:</div>
+
+		<input type="text" id="search-addr-field" placeholder="Buscar por bairro, endereço, cep, etc." />
+		<button class="transition btn" id="search-addr-btn">Buscar</button>
+
+		<iframe width="550" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=pt-BR&amp;geocode=&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=45.467317,93.076172&amp;ie=UTF8&amp;ll=-23.561388,-46.656389&amp;spn=0.020456,0.032015&amp;t=m&amp;output=embed"></iframe>
+	</div>
+	<div id="describe" class="fl">
+		<ul>
+			<li>Você foi vitma de furto ou roubo do seu veículo?</li>
+			<li>Quer saber o melhor lugar para estacionar na rua?</li>
+		</ul>
+	</div>
 {% endblock %}
