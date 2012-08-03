@@ -101,8 +101,8 @@ h1, h2, h3, h4, h5, h6 { font-weight: bold; }
   h2, h3{ page-break-after: avoid; }
 }
 
-::-moz-selection{ background:#00A6FF; color:#fff; text-shadow: none; }
-::selection { background:#00A6FF; color:#fff; text-shadow: none; }
+::-moz-selection{ background:#8bbd0c; color:#fff; text-shadow: none; }
+::selection { background:#8bbd0c; color:#fff; text-shadow: none; }
 
 body{font:12px Helvetica,Arial,sans-serif;background:#ddd;}
 
@@ -116,6 +116,11 @@ a:hover{color: #777;}
 h1{
 	font-size:25px;
 	padding:10px 2px;
+}
+
+h2{
+	color:#8bbd0c;
+	font-size:18px;
 }
 
 .transition{
@@ -138,9 +143,9 @@ h1{
 
 .btn:hover{
 	background:#404040;
-	-webkit-box-shadow:0px 0px 15px rgba(50, 50, 50, 1);
-	   -moz-box-shadow:0px 0px 15px rgba(50, 50, 50, 1);
-		    box-shadow:0px 0px 15px rgba(50, 50, 50, 1);
+	-webkit-box-shadow:0px 0px 10px rgba(50, 50, 50, 1);
+	   -moz-box-shadow:0px 0px 10px rgba(50, 50, 50, 1);
+		    box-shadow:0px 0px 10px rgba(50, 50, 50, 1);
 }
 
 .btn:active{
@@ -152,6 +157,7 @@ input[type=text], textarea{
 	border:1px solid #777;
 	border-radius: 3px;
 	outline: none;
+	padding:3px;
 }
 
 .lightbox-inner{padding:15px;}
@@ -164,7 +170,6 @@ input[type=text], textarea{
 }
 
 #header-container{
-	padding-bottom: 20px;
 	color:#fff;
 	background-image: linear-gradient(bottom, rgb(0,0,0) 34%, rgb(36,36,36) 84%);
 	background-image: -o-linear-gradient(bottom, rgb(0,0,0) 34%, rgb(36,36,36) 84%);
@@ -189,7 +194,7 @@ input[type=text], textarea{
 }
 
 #upper-menu li{
-	margin:10px 20px 0 0;
+	margin:17px 20px 0 0;
 	font-weight: bold;
 }
 
@@ -217,6 +222,8 @@ input[type=text], textarea{
 	font-weight: bold;
 	margin-bottom:10px;
 }
+
+#occurences-map .description .highlight{color:#f00;}
 
 #search-addr-field{
 	width:250px;
@@ -254,6 +261,7 @@ form fieldset{
 	padding:5px;
 }
 
+
 form fieldset legend{
 	color:#777;
 	font-weight: bold;
@@ -271,3 +279,22 @@ form label{
 form input[type=text], form textarea, form label{
 	float:left;	
 }
+
+form input, form textarea{
+	width:200px;
+}
+
+form input.number{width:30px;}
+form label.number{
+	width:30px;
+	margin-left: 15px;
+}
+
+form.unrequired label, 
+form.unrequired input[type=text], 
+form.unrequired textarea{
+	opacity: 0.7;
+}
+
+form .required{opacity: 1!important;}
+form label.required{font-weight: bold;}

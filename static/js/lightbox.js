@@ -1,4 +1,4 @@
-lightbox = function(param){
+window.lightbox = function(param){
 	var instance = this;
 	instance.defaults = {
 		minWidth: 400,
@@ -128,17 +128,17 @@ lightbox = function(param){
 		var _width = Math.max(width || 0, instance.defaults.minWidth);
 		var _height = Math.max(height || 0, instance.defaults.minHeight);
 		instance.box.centralize(height);
-		instance.box.animate({'height': _height});
-		instance.box.animate({'width': _width}, 500, function(){
-			var _content = response || text;
-			if(_content) instance.content.hide().html(_content).fadeIn();
-		});
+		
+		instance.box.width(_width).height(_height);
+
+		var _content = response || text;
+		if(_content) 
+			instance.content.hide().html(_content).fadeIn();
+		
 	}
 	
-	
 	instance.close = function(){
-		instance.box.animate({'width': 10});
-		instance.box.animate({'height': 0}, 500, function(){
+		instance.content.fadeOut(200, function(){
 			instance.container.remove();
 			instance.defaults.overlay.hide();
 		});
