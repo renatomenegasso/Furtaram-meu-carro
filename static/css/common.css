@@ -259,6 +259,8 @@ form fieldset{
 	border:1px solid #bbb;
 	border-radius:5px;
 	padding:5px;
+	text-align: left;
+	margin-bottom:20px;
 }
 
 
@@ -298,3 +300,8 @@ form.unrequired textarea{
 
 form .required{opacity: 1!important;}
 form label.required{font-weight: bold;}
+
+
+.add-occurrence{
+	text-align: center;
+}
