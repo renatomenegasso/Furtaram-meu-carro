@@ -1,48 +1,48 @@
 <div class="lightbox-inner add-occurrence">
-	<h2>Adicionar roubo</h2>
+	<h2>Adicionar roubo ao mapa</h2>
 
 	<form method="post" action="/add-occurrence-post" class="unrequired">
 		<fieldset>
 			<legend>Dados do roubo</legend>
 
 			<div class="clearfix">
-				<label class="required">*Endereço:</label>
-				<input type="text" name="street" class="required" />
-
-				<label class="number">Nº:</label>
-				<input type="text" name="number" class="number" />
+				<label class="required">*Endereço completo:</label>
+				<input type="text" name="address" class="required large" />
 			</div>
 
-			<label>Data:</label>
-			<input type="text" name="date" />
+			<label class="">Data:</label>
+			<input type="text" name="date" class="medium" data-mask="99/99/9999" /> <span class="field-tip">(dd/mm/aaaa)</span>
 		</fieldset>
 
-		<fieldset>
-			<legend>Dados do veículo (opcional)</legend>
+		<fieldset class="toggle-set closed">
+			<legend>[+] Informações para contato (opcional)</legend>
+			<div class="clearfix">
+				<label>Email:</label>
+				<input type="text" name="email" /> <span class="field-tip">usuario@dominio</span>
+			</div>
+
+			<div class="clearfix">
+				<label>Telefone:</label>
+				<input type="text" name="phone" data-mask="(99) 9999-9999?9" /> <span class="field-tip">(11) 5555-5555</span>
+			</div>
+
+		</fieldset>
+		<fieldset class="toggle-set closed">
+			<legend>[+] Dados do veículo (opcional)</legend>
 			
 			<div class="clearfix">
 				<label>Marca:</label>
-				<input type="text" name="brand" />
-			</div>
-
-			<div class="clearfix">
+				<input type="text" name="brand" class="medium" />
 				<label>Modelo:</label>
-				<input type="text" name="model" />
+				<input type="text" name="model" class="medium" />
 			</div>
 
 			<div class="clearfix">
 				<label>Cor:</label>
-				<input type="text" name="model" />
-			</div>
+				<input type="text" name="model" class="medium" />
 
-			<div class="clearfix">
-				<label>Ano do modelo:</label>
-				<input type="text" name="model_year" />
-			</div>
-
-			<div class="clearfix">
 				<label>Placa:</label>
-				<input type="text" name="license_plate" />
+				<input type="text" name="license_plate" data-mask="aaa-9999" class="medium" />
 			</div>
 
 			<div class="clearfix">

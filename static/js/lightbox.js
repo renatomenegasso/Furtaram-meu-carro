@@ -132,8 +132,9 @@ window.lightbox = function(param){
 		instance.box.width(_width).height(_height);
 
 		var _content = response || text;
-		if(_content) 
-			instance.content.hide().html(_content).fadeIn();
+		instance.content.hide().html(_content).fadeIn(500, function(){
+			$(document).trigger('lightboxopened', instance);
+		});
 		
 	}
 	

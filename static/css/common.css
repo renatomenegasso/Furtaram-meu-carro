@@ -275,22 +275,18 @@ form div{
 
 form label{
 	display:block;
-	width:110px;
+	width:80px;
+	text-align:right;
+	padding-right: 10px;
 }
 
-form input[type=text], form textarea, form label{
-	float:left;	
-}
+form input[type=text], form textarea, form label{float:left;}
 
-form input, form textarea{
-	width:200px;
-}
+form input, form textarea{width:180px;margin-right:20px;}
 
-form input.number{width:30px;}
-form label.number{
-	width:30px;
-	margin-left: 15px;
-}
+form input.large{width:310px;}
+
+form input.medium{width:110px;}
 
 form.unrequired label, 
 form.unrequired input[type=text], 
@@ -298,9 +294,26 @@ form.unrequired textarea{
 	opacity: 0.7;
 }
 
+form .field-tip{
+	font-style: italic;
+	margin-left:-10px;
+}
+
 form .required{opacity: 1!important;}
 form label.required{font-weight: bold;}
 
+/* ---------- */
+
+fieldset.toggle-set legend{cursor:pointer;}
+
+fieldset.closed{
+	overflow: hidden;
+	height:10px;
+}
+
+fieldset.closed input, fieldset.closed label, fieldset.closed textarea{display:none;}
+
+/* ---------- */
 
 .add-occurrence{
 	text-align: center;
