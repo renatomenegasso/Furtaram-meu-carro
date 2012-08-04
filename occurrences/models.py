@@ -17,13 +17,18 @@ class Theft(models.Model):
         return self.address
 
 class TheftContactInfo(models.Model):
-	theft = models.ForeignKey(Theft, related_name="TheftContactInfo")
-	name = models.CharField(max_length=50, null=True, blank=True)
-	email = models.CharField(max_length=50, null=True, blank=True)
-	phone = models.CharField(max_length=20, null=True, blank=True)
+    theft = models.ForeignKey(Theft, related_name="TheftContactInfo")
+    name = models.CharField(max_length=50, null=True, blank=True)
+    email = models.CharField(max_length=50, null=True, blank=True)
+    phone = models.CharField(max_length=20, null=True, blank=True)
 
 class StolenCarInfo(models.Model):
-	theft = models.ForeignKey(Theft, related_name="car")
-	license_plate = models.CharField(max_length=8, null=True, blank=True)
-	color = models.CharField(max_length=20, null=True, blank=True)
-	others = models.CharField(max_length=2000, null=True, blank=True)
+    theft = models.ForeignKey(Theft, related_name="car")
+
+    brand = models.CharField(max_length=20, null=True, blank=True)
+    model = models.CharField(max_length=20, null=True, blank=True)
+    color = models.CharField(max_length=20, null=True, blank=True)
+
+    license_plate = models.CharField(max_length=8, null=True, blank=True)
+
+    others = models.CharField(max_length=2000, null=True, blank=True)

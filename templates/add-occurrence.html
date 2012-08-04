@@ -1,57 +1,65 @@
 <div class="lightbox-inner add-occurrence">
 	<h2>Adicionar roubo ao mapa</h2>
+	
+	<div class="fl" id="lightbox-map">aguarde...</div>
 
-	<form method="post" action="/add-occurrence-post" class="unrequired">
-		<fieldset>
-			<legend>Dados do roubo</legend>
+	<div class="fl" id="add-corcurrence-form-container">
+		<form method="post" action="/add-occurrence-post" class="unrequired ajax">
+			{% csrf_token %}
+			<fieldset>
+				<legend>Dados do roubo</legend>
 
-			<div class="clearfix">
-				<label class="required">*Endereço completo:</label>
-				<input type="text" name="address" class="required large" maxlength="400" />
-			</div>
+				<div class="clearfix">
+					<label class="required">*Endereço completo:</label>
+					<input type="text" name="address" class="required large" maxlength="400" placeholder="Digite ou clique no mapa ao lado" id="address-field" autocomplete="off" />
 
-			<label class="">Data:</label>
-			<input type="text" name="date" class="medium" data-mask="99/99/9999" /> <span class="field-tip">(dd/mm/aaaa)</span>
-		</fieldset>
+					<input type="hidden" name="latitude" id="lat" />
+					<input type="hidden" name="longitude" id="lng" />
+				</div>
 
-		<fieldset class="toggle-set closed">
-			<legend>[+] Informações para contato (opcional)</legend>
-			<div class="clearfix">
-				<label>Email:</label>
-				<input type="text" name="email" /> <span class="field-tip">usuario@dominio</span>
-			</div>
+				<label>Data:</label>
+				<input type="text" name="date" class="medium" data-mask="99/99/9999" /> <span class="field-tip">(dd/mm/aaaa)</span>
+			</fieldset>
 
-			<div class="clearfix">
-				<label>Telefone:</label>
-				<input type="text" name="phone" data-mask="(99) 9999-9999?9" /> <span class="field-tip">(11) 5555-5555</span>
-			</div>
+			<fieldset class="toggle-set closed">
+				<legend>[+] Informações para contato (opcional)</legend>
+				<div class="clearfix">
+					<label>Email:</label>
+					<input type="text" name="email" /> <span class="field-tip">usuario@dominio</span>
+				</div>
 
-		</fieldset>
-		<fieldset class="toggle-set closed">
-			<legend>[+] Dados do veículo (opcional)</legend>
-			
-			<div class="clearfix">
-				<label>Marca:</label>
-				<input type="text" name="brand" class="medium" />
-				<label>Modelo:</label>
-				<input type="text" name="model" class="medium" />
-			</div>
+				<div class="clearfix">
+					<label>Telefone:</label>
+					<input type="text" name="phone" data-mask="(99) 9999-9999?9" /> <span class="field-tip">(11) 5555-5555</span>
+				</div>
 
-			<div class="clearfix">
-				<label>Cor:</label>
-				<input type="text" name="model" class="medium" maxlength="20" />
+			</fieldset>
+			<fieldset class="toggle-set closed">
+				<legend>[+] Dados do veículo (opcional)</legend>
+				
+				<div class="clearfix">
+					<label>Marca:</label>
+					<input type="text" name="brand" class="medium" />
+					<label>Modelo:</label>
+					<input type="text" name="model" class="medium" />
+				</div>
 
-				<label>Placa:</label>
-				<input type="text" name="license_plate" data-mask="aaa-9999" maxlength="8" class="medium" />
-			</div>
+				<div class="clearfix">
+					<label>Cor:</label>
+					<input type="text" name="model" class="medium" maxlength="20" />
 
-			<div class="clearfix">
-				<label>Outros:</label>
-				<textarea></textarea>
-			</div>
-		</fieldset>
+					<label>Placa:</label>
+					<input type="text" name="license_plate" data-mask="aaa-9999" maxlength="8" class="medium license-plate" />
+				</div>
 
-		<input type="submit" class="btn big transition" value="Salvar" />
+				<div class="clearfix">
+					<label>Outros:</label>
+					<textarea></textarea>
+				</div>
+			</fieldset>
 
-	</form>
+			<input type="submit" class="btn big transition" value="Salvar" />
+
+		</form>
+	</div>		
 </div>
