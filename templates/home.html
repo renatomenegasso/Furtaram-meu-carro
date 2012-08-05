@@ -11,19 +11,18 @@
 
 {% block content %}
 	<div id="occurences-map">
-		<div class="description">
-			Veja abaixo os lugares com maior incidência de roubo, onde é melhor <strong class="highlight">evitar estacionar</strong>:
-		</div>
-
 		<div class="map-legend fr">
 			<p><small>Legenda</small></p>
 			<img src="https://furtaram.s3-sa-east-1.amazonaws.com/img/stolen.png" width="15" alt="" class="first"> Carro roubado
 			<img src="https://furtaram.s3-sa-east-1.amazonaws.com/img/finded.png" width="15" alt=""> Carro encontrado
 		</div>
 
-		<input type="text" id="search-addr-field" placeholder="Buscar por bairro, endereço, cep, etc.">
-		<button class="transition btn" id="search-addr-btn">Buscar</button><br />
+		<input type="text" id="search-field" placeholder="Buscar por bairro, rua, cep, etc.">
+		<button class="transition" id="search-btn">Buscar</button><br />
 
+		<div class="description">
+			Veja abaixo os lugares com maior incidência de <strong class="highlight">roubo</strong>, onde é melhor <strong class="highlight">evitar estacionar</strong>:
+		</div>
 		
 		<div id="main-map">
 			<span class="loading">carregando mapa...</span>

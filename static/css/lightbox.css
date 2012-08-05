@@ -37,3 +37,12 @@
 }
 .lightbox-container .bl{background-position: 0 -26px;bottom:-15px;left:-15px;}
 .lightbox-container .br{background-position: -15px -26px;bottom:-15px;right:-15px;}
+
+.lightbox-container .lightbox-loading{
+	background: #fff;
+	padding:10px 20px;
+	border-radius:10px;
+	font-color:#777;
+	font-size:15px;
+	text-align: center;
+}

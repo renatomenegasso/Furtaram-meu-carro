@@ -37,8 +37,8 @@ window.lightbox = function(param){
 	
 	var cssWrapper = {
 		margin: 'auto',
-		width: '10px',
-		height: '10px',
+		width: '150px',
+		height: '35px',
 		position: 'relative',
 		textAlign:'left'
 	}
@@ -76,6 +76,7 @@ window.lightbox = function(param){
 		instance.box = instance.container.find('.lightbox-wrapper');
 		instance.content = instance.box.find('.lightbox-content');
 		instance.loading = instance.box.find('.lightbox-loading');
+		instance.box.centralize();
 		loadContent(show);
 	}
 	
@@ -87,7 +88,7 @@ window.lightbox = function(param){
 		var content = $(['<div class="lightbox-container">',
 		                 	'<div class="lightbox-wrapper">',
 			               		'<div class="lightbox-content"></div>',
-			               		'<div class="lightbox-loading"></div>',
+			               		'<div class="lightbox-loading">Carregando...</div>',
 			               		'<div class="t"></div>',
 			                    '<div class="l"></div>',
 			                    '<div class="b"></div>',

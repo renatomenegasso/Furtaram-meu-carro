@@ -124,7 +124,12 @@ h2{
 	margin-bottom:15px;
 }
 
-.transition{
+p{
+	text-align: justify;
+	margin-bottom: 15px;
+}
+
+.transition, .transition *{
 	-webkit-transition:all 0.3s;
 	   -moz-transition:all 0.3s;
 	     -o-transition:all 0.3s;
@@ -151,6 +156,14 @@ h2{
 	-webkit-box-shadow:0px 0px 20px #9bbb02;
 	   -moz-box-shadow:0px 0px 20px #9bbb02;
 		    box-shadow:0px 0px 20px #9bbb02;
+}
+
+.btn:active{
+	background-image: linear-gradient(bottom, #cbf00d 34%,#9bbb02 84%);
+	background-image: -o-linear-gradient(bottom, #cbf00d 34%,#9bbb02 84%);
+	background-image: -moz-linear-gradient(bottom, #9bbb02 34%,#cbf00d 84%);
+	background-image: -webkit-linear-gradient(bottom, #cbf00d 34%,#9bbb02 84%);
+	background-image: -ms-linear-gradient(bottom, #cbf00d 34%,#9bbb02 84%);
 }
 
 input[type=text], textarea{
@@ -185,6 +198,14 @@ input[type=text], textarea{
 }
 
 #header-container a:hover{color:#fff;}
+
+#header-logo{
+	display:block;
+	width:281px;
+	height:70px;
+	text-indent: -9999px;
+	background: url("https://furtaram.s3-sa-east-1.amazonaws.com/img/furtaram-meu-carro.gif") no-repeat;
+}
 
 #upper-menu{
 	position:absolute;
@@ -225,14 +246,32 @@ input[type=text], textarea{
 #occurences-map .description{
 	font-size:14px;
 	font-weight: bold;
-	margin-bottom:10px;
+	margin:10px 0;
 }
 
 #occurences-map .description .highlight{color:#f00;}
 
-#search-addr-field{
-	width:250px;
-	height:25px;
+#search-field{
+	width:350px;
+	height:30px;
+	font-size: 15px;
+	margin-bottom: 3px;
+}
+
+#search-btn{
+	border:none;
+	height:38px;
+	padding:3px 30px;
+	background: #d3d7da;
+	border-radius: 7px;
+	color:#06728f;
+	font-weight: bold;
+	font-size: 15px;
+	margin-left:10px;
+}
+
+#search-btn:hover{
+	background: #babdc0;
 }
 
 #main-map{
@@ -265,21 +304,63 @@ input[type=text], textarea{
 	margin-top:220px;
 }
 
+
+#bottom-menu{
+	margin:25px 0;
+}
+
+#bottom-menu li{
+	text-align: center;
+	width:33%;
+}
+
+#bottom-menu a{
+	display: inline-block;
+	width:185px;
+	height:159px;
+	border-radius: 5px;
+	border:3px solid #b6b6b6;
+	position: relative;
+	background: url(https://furtaram.s3-sa-east-1.amazonaws.com/img/sprite-bottom-menu.jpg) no-repeat;
+}
+
+#bottom-menu a.estatisticas{background-position:-185px 0;}
+#bottom-menu a.encontraram{background-position:-370px 0;}
+#bottom-menu a.quem-somos{background-position:-555px 0;}
+
+#bottom-menu a span{
+	display:block;
+	width:191px;
+	text-align: center;
+	position: absolute;
+	bottom:0px;
+	font-size:15px;
+	padding:10px 0;
+	color:#373833;
+	background-image: linear-gradient(bottom, #9bbb02 34%,#cbf00d 84%);
+	background-image: -o-linear-gradient(bottom, #9bbb02 34%,#cbf00d 84%);
+	background-image: -moz-linear-gradient(bottom, #9bbb02 34%,#cbf00d 84%);
+	background-image: -webkit-linear-gradient(bottom, #9bbb02 34%,#cbf00d 84%);
+	background-image: -ms-linear-gradient(bottom, #9bbb02 34%,#cbf00d 84%);
+	margin:0 -3px -3px -3px;
+	border-radius: 0 0px 5px 5px;
+}
+
+#bottom-menu a:hover{
+	-webkit-box-shadow:0px 0px 20px #aaa;
+	   -moz-box-shadow:0px 0px 20px #aaa;
+		    box-shadow:0px 0px 20px #aaa;
+}
+
+#bottom-menu a:hover span{
+	color:#fff;
+	text-shadow: 0px 0px 13px #ffffff;
+}
+
 #footer-container{
 	background:#08718f;
 	color:#fff;
 	padding:10px 0;
-}
-
-#feedback{
-	display:block;
-	position:fixed;
-	width:20px;
-	height:100px;
-	left:0px;
-	top:200px;
-	background:#444;
-	color:#fff;
 }
 
 /* ---------- */

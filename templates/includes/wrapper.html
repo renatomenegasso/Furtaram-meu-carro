@@ -37,11 +37,13 @@
 
 <div id="header-container">
 	<header class="wrapper">
-		<h1 id="header-logo">Furtaram meu carro</h1>
+		<h1>
+			<a href="/" id="header-logo">Furtaram meu carro!</a>
+		</h1>
 		<nav id="upper-menu">
 			<ul>
 				<li><a href="/como-prevenir-roubos">Como prevenir</a></li>
-				<li><a href="/estatisticas-roubos">Estatísticas</a></li>
+				<!--<li><a href="/estatisticas-roubos">Estatísticas</a></li>-->
 				<li><a href="#carro-encontrado" id="car-finded">Meu carro foi encontrado!</a></li>
 				<li><a href="/sobre-o-site">Sobre</a></li>
 			</ul>
@@ -56,6 +58,33 @@
 		{% block content %}
 			conteudo principal
 		{% endblock %}
+
+		<nav>
+			<ul id="bottom-menu" class="clearfix">
+				<li>
+					<a href="/como-prevenir-roubos" class="transition como-prevenir">
+						<span>Como prevenir roubos</span>
+					</a>
+				</li>
+				<!--
+				<li>
+					<a href="/estatisticas-roubos" class="transition estatisticas">
+						<span>Estatísticas</span>
+					</a>
+				</li>
+				-->
+				<li>
+					<a href="#encontraram-meu-carro" class="transition encontraram">
+						<span>Acharam meu carro!</span>
+					</a>
+				</li>
+				<li>
+					<a href="/sobre-o-site" class="transition quem-somos">
+						<span>Quem somos</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
 	</section>
 </div>
 
@@ -66,23 +95,16 @@
 	</footer>
 </div>
 
-<a href="#send-feedback" id="feedback"></a>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script>!window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.7.2.min.js"%3E%3C/script%3E'))</script>
 <!--[if lt IE 7 ]>
 <script src="/static/js/libs/dd_belatedpng.js"></script>
 <script> DD_belatedPNG.fix('img, .png_bg');</script>
 <![endif]-->
 
-<script src="/s/js/lightbox.js"></script>
-<script src="/s/js/toggle-fieldset.js"></script>
-<script src="/s/js/message.js"></script>
-<script src="/s/js/ajaxform.js"></script>
-<script src="/s/js/jquery.maskedinput.custom.js"></script>
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key= 	
-AIzaSyDWjiH1KKNCen3MVROgaLJGnIni2utppAU&amp;sensor=false&amp;libraries=places"></script>
+<script src="/s/js/libs.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDWjiH1KKNCen3MVROgaLJGnIni2utppAU&amp;sensor=false&amp;libraries=places"></script>
 
-<script src="/s/js/common.js"></script>
+<script src="/s/js/main.js"></script>
 
 {% block js %}{% endblock %}
 

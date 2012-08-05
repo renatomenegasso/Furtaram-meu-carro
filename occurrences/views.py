@@ -7,13 +7,12 @@ from jsonui.response import JSONResponse
 from occurrences.models import Theft, TheftContactInfo, StolenCarInfo
 
 def add_occurrence(request):
+
     t = loader.get_template('add-occurrence.html')
     c = RequestContext(request)
     c.update(csrf(request))
 
     return HttpResponse(t.render(c))
-
-
 
 def add_occurrence_post(request):
     if request.POST.get("address") == "":

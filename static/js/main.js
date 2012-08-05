@@ -23,7 +23,7 @@
 	    mainMap = new google.maps.Map($("#main-map")[0], opts);
 		centerMapInUserPosition(mainMap);
 
-		handleAddrField($("#search-addr-field"), mainMap);
+		handleAddrField($("#search-field"), mainMap);
 	}
 
 	function setupLightboxOccurrence(){
@@ -107,6 +107,8 @@
 
 	        currentMarker = addStolenMarker(map, place.geometry.location.lat(), place.geometry.location.lng());
 	        currentMarker.setDraggable(true);
+	        currentMarker.setCursor('move');
+
 	        google.maps.event.addListener(currentMarker, 'dragend', function(evt){
 	        	updateLatLng(evt.latLng.lat(), evt.latLng.lng());
 			});
