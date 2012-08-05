@@ -1,0 +1,90 @@
+.message_box {
+	border-radius: 10px;
+	font-size: 13px;
+	position: fixed;
+	top: 50px;
+	z-index: 9;
+	width: 535px;
+}
+
+.message_box,.message_box .message_inner {
+	background:
+		url(http://image.buscape.com/bui-bp7/bg-message-box-success.png)
+		no-repeat;
+}
+
+.message_box.success,.message_box.success a {
+	color: #367325;
+}
+
+.message_box.warning,.message_box.warning a {
+	color: #785a01;
+}
+
+.message_box.error,.message_box.error a {
+	color: #ed1c24;
+}
+
+.message_box .message_inner .ico {
+	background:
+		url(http://image.buscape.com/bui-bp7/sprite-icos-message-box.png)
+		no-repeat;
+	display: block;
+	height: 20px;
+	width: 20px;
+	float:left;
+}
+
+.message_box.success .message_inner .ico {
+	background-position: 0 0;
+}
+
+.message_box.warning .message_inner .ico {
+	background-position: 0 -97px;
+}
+
+.message_box.error .message_inner .ico {
+	background-position: 0 -48px;
+}
+
+.message_box.warning,.message_box.warning .message_inner {
+	background-image:
+		url(http://image.buscape.com/bui-bp7/bg-message-box-warning.png);
+}
+
+.message_box.error,.message_box.error .message_inner {
+	background-image:
+		url(http://image.buscape.com/bui-bp7/bg-message-box-error.png);
+}
+
+.message_box .close {
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: bold;
+	position: absolute;
+	text-align: right;
+	right: 20px;
+	top: 13px;
+}
+
+.message_box.success .close {
+	color: #7cab71;
+}
+
+.message_box.success .warning {
+	color: #f7d85c;
+}
+
+.message_box.success .error {
+	color: #f46c70;
+}
+
+.message_box .message_inner {
+	background-position: left bottom;
+	margin-top: 10px;
+	padding: 5px 20px 15px 20px;
+}
+
+.message_box .highlight,.message_box a {
+	font-weight: bold;
+}

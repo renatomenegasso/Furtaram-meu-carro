@@ -2,30 +2,34 @@
 	var initPoint = {lat: -23.561383, lng: -46.656436},
 		stolenImg = "https://furtaram.s3-sa-east-1.amazonaws.com/img/stolen.png";
 
-	var mainMap = null;
+	var mainMap = null,
+		currentLightbox = null;
 
 	function init(){
 		setupAjax();
 		renderMainMap();
-		addOccurrence();
+		setupLightboxOccurrence();
+		loadPoints();
 	}
 	
 	function renderMainMap(){
 		var opts = {
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
-			zoom:17,
+			zoom:11,
 			mapTypeControl:false
 	    };
 		
 
 	    mainMap = new google.maps.Map($("#main-map")[0], opts);
 		centerMapInUserPosition(mainMap);
+
+		handleAddrField($("#search-addr-field"), mainMap);
 	}
 
-	function addOccurrence(){
+	function setupLightboxOccurrence(){
 		$("#add-occurrence").click(function(e){
 			e.preventDefault();
-			var form = new lightbox({
+			currentLightbox = new lightbox({
 				url:"/add-occurrence",
 				width: 800,
 				height:450
@@ -33,8 +37,23 @@
 
 			$(document).bind("lightboxopened", function(e, lightbox){
 				var map = renderLightboxMap();
-				handleAddrField(map);
+				handleAddrField($("#address-field"), map, true);
 			});
+		});
+
+		$(document).delegate("#add-occurrence-form", "ajaxcomplete", function(e, response){
+			if(response.success){
+				currentLightbox.close();
+				new message("Sua ocorrẽncia foi adicionada.");
+				var lat = parseFloat($("#lat").val()),
+					lng = parseFloat($("#lng").val());
+
+				mainMap.setCenter(new google.maps.LatLng(lat, lng));
+				mainMap.setZoom(16);
+				setTimeout(function(){
+					addStolenMarker(mainMap, lat, lng);
+				}, 1000);
+			}
 		});
 	}
 
@@ -46,13 +65,11 @@
 	    };
 		
 	    var map = new google.maps.Map($("#lightbox-map")[0], opts);
-
 		centerMapInUserPosition(map);
-
 	    return map;
 	}
 
-	function handleAddrField(map) {
+	function handleAddrField($field, map, addMarker) {
 		function updateLatLng(lat, lng){
 			$("#lat").val(lat);
 			$("#lng").val(lng);
@@ -65,7 +82,6 @@
 	    	componentRestrictions: {country:'br'}
 	    };
 
-	    var $field = $("#address-field");
 	    var autocomplete = new google.maps.places.Autocomplete($field[0], opts);
 
 	    autocomplete.bindTo('bounds', map); 
@@ -81,11 +97,15 @@
 	        	map.setZoom(17);
 	        }
 
+	        if(!addMarker){
+	        	return;
+	        }
+
 			if(currentMarker){
 				currentMarker.setMap(null);
 			}
 
-	        currentMarker = addStolenMaker(map, place.geometry.location);
+	        currentMarker = addStolenMarker(map, place.geometry.location.lat(), place.geometry.location.lng());
 	        currentMarker.setDraggable(true);
 	        google.maps.event.addListener(currentMarker, 'dragend', function(evt){
 	        	updateLatLng(evt.latLng.lat(), evt.latLng.lng());
@@ -114,7 +134,7 @@
 		}
 	}
 
-	function addStolenMaker(map, position){
+	function addStolenMarker(map, lat, lng){
 		var marker = new google.maps.Marker({ map: map });
 
         var image = new google.maps.MarkerImage(
@@ -125,9 +145,18 @@
               new google.maps.Size(30, 30));
 
 		marker.setIcon(image);
-		marker.setPosition(position);
+		marker.setPosition(new google.maps.LatLng(lat, lng));
 
         return marker;
+	}
+
+	function loadPoints(){
+		$.get('/get-occurrences', function(response){
+			var occurrences = response.occurrences;
+			for(var i = 0; i <  occurrences.length; i ++){
+				addStolenMarker(mainMap, occurrences[i].latitude, occurrences[i].longitude)
+			}
+		});
 	}
 
 	function setupAjax(){

@@ -104,14 +104,14 @@ h1, h2, h3, h4, h5, h6 { font-weight: bold; }
 ::-moz-selection{ background:#8bbd0c; color:#fff; text-shadow: none; }
 ::selection { background:#8bbd0c; color:#fff; text-shadow: none; }
 
-body{font:12px Helvetica,Arial,sans-serif;background:#ddd;}
+body{font:12px Helvetica,Arial,sans-serif;background:#fff;}
 
 nav ul li{float:left;}
 
 a{text-decoration:none;}
 a:hover{color: #777;}
 
-.big{font-size:22px;}
+.big{font-size:18px;}
 
 h1{
 	font-size:25px;
@@ -121,6 +121,7 @@ h1{
 h2{
 	color:#8bbd0c;
 	font-size:18px;
+	margin-bottom:15px;
 }
 
 .transition{
@@ -131,30 +132,29 @@ h2{
 }
 
 .btn{
-	background:#555;
+	background-image: linear-gradient(bottom, #9bbb02 34%,#cbf00d 84%);
+	background-image: -o-linear-gradient(bottom, #9bbb02 34%,#cbf00d 84%);
+	background-image: -moz-linear-gradient(bottom, #9bbb02 34%,#cbf00d 84%);
+	background-image: -webkit-linear-gradient(bottom, #9bbb02 34%,#cbf00d 84%);
+	background-image: -ms-linear-gradient(bottom, #9bbb02 34%,#cbf00d 84%);
 	color:#fff;
 	border:none;
-	border-radius: 7px;
+	border-radius: 10px;
 	padding:5px 10px;
-	border-bottom:4px solid #333;
+	text-shadow: 0px 0px 4px #777;
+	filter: dropshadow(color=#777, offx=0, offy=0);
 }
 
 .big.btn{padding:10px 30px;}
 
 .btn:hover{
-	background:#404040;
-	-webkit-box-shadow:0px 0px 10px rgba(50, 50, 50, 1);
-	   -moz-box-shadow:0px 0px 10px rgba(50, 50, 50, 1);
-		    box-shadow:0px 0px 10px rgba(50, 50, 50, 1);
-}
-
-.btn:active{
-	background: #333;
-	border-bottom:4px solid #444;
+	-webkit-box-shadow:0px 0px 20px #9bbb02;
+	   -moz-box-shadow:0px 0px 20px #9bbb02;
+		    box-shadow:0px 0px 20px #9bbb02;
 }
 
 input[type=text], textarea{
-	border:1px solid #777;
+	border:1px solid #b8b6b7;
 	border-radius: 3px;
 	outline: none;
 	padding:3px;
@@ -167,21 +167,20 @@ input[type=text], textarea{
 .wrapper{
 	margin:auto;
 	width:960px;
+	position:relative;
 }
 
 #header-container{
 	color:#fff;
-	background-image: linear-gradient(bottom, rgb(0,0,0) 34%, rgb(36,36,36) 84%);
-	background-image: -o-linear-gradient(bottom, rgb(0,0,0) 34%, rgb(36,36,36) 84%);
-	background-image: -moz-linear-gradient(bottom, rgb(0,0,0) 34%, rgb(36,36,36) 84%);
-	background-image: -webkit-linear-gradient(bottom, rgb(0,0,0) 34%, rgb(36,36,36) 84%);
-	background-image: -ms-linear-gradient(bottom, rgb(0,0,0) 34%, rgb(36,36,36) 84%);
+	background-image: linear-gradient(bottom, #09a5d5 34%,#0f8bb1 84%);
+	background-image: -o-linear-gradient(bottom, #09a5d5 34%,#0f8bb1 84%);
+	background-image: -moz-linear-gradient(bottom, #09a5d5 34%,#0f8bb1 84%);
+	background-image: -webkit-linear-gradient(bottom, #09a5d5 34%,#0f8bb1 84%);
+	background-image: -ms-linear-gradient(bottom, #09a5d5 34%,#0f8bb1 84%);
 }
 
-#header-container .wrapper{position:relative;}
-
 #header-container a{
-	color:#aaa;
+	color:#eee;
 	letter-spacing: 1px;
 }
 
@@ -200,22 +199,28 @@ input[type=text], textarea{
 
 #upper-menu li a:hover{text-shadow: 0px 0px 13px rgba(255, 255, 255, 1);}
 
-#upper-menu li #car-finded{color:#8bbd0c;}
+#upper-menu li #car-finded{color:#d7f347;font-size: 13px;}
 #upper-menu li #car-finded:hover{color:#fff;}
 
+#button-bar{
+	background: #08718f;
+	color:#fff;
+	padding:15px 0;
+}
+
+#button-bar .highlight{
+	color: #d7fe0f;
+}
+
+#button-bar .btn{
+	position:relative;
+	right:-160px;
+}
+
 #content{
-	background:#fff;
 	padding:10px;
+	min-height: 500px;
 }
-
-#main-message{
-	padding:35px 0;
-	text-align: center;
-}
-
-#main-message .highlight{color:#8bbd0c;}
-
-#add-occurrence{margin-top:10px;}
 
 #occurences-map .description{
 	font-size:14px;
@@ -238,7 +243,21 @@ input[type=text], textarea{
 	height:500px;
 }
 
-#main-map span{
+.map-legend{
+	border:1px solid #ccc;
+	border-radius: 4px;
+	padding:3px 20px 3px 3px;
+}
+
+.map-legend img{
+	margin:0px 0px -3px 20px;
+}
+
+.map-legend img.first{
+	margin-left:0px;
+}
+
+#main-map .loading{
 	color: #aaa;
 	font-size:40px;
 	display: block;
@@ -247,7 +266,7 @@ input[type=text], textarea{
 }
 
 #footer-container{
-	background:rgb(36,36,36);
+	background:#08718f;
 	color:#fff;
 	padding:10px 0;
 }
@@ -307,6 +326,10 @@ form.unrequired textarea{
 form .field-tip{
 	font-style: italic;
 	margin-left:-10px;
+}
+
+form .error{
+	border:1px solid #f00;
 }
 
 form .required{opacity: 1!important;}

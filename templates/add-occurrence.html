@@ -4,7 +4,7 @@
 	<div class="fl" id="lightbox-map">aguarde...</div>
 
 	<div class="fl" id="add-corcurrence-form-container">
-		<form method="post" action="/add-occurrence-post" class="unrequired ajax">
+		<form method="post" action="/add-occurrence-post" class="unrequired ajax" id="add-occurrence-form">
 			{% csrf_token %}
 			<fieldset>
 				<legend>Dados do roubo</legend>
@@ -18,7 +18,7 @@
 				</div>
 
 				<label>Data:</label>
-				<input type="text" name="date" class="medium" data-mask="99/99/9999" /> <span class="field-tip">(dd/mm/aaaa)</span>
+				<input type="text" name="theft_date" class="medium" data-mask="99/99/9999" /> <span class="field-tip">(dd/mm/aaaa)</span>
 			</fieldset>
 
 			<fieldset class="toggle-set closed">

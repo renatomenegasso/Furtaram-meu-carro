@@ -1,16 +1,20 @@
 from django.db import models
 from django.utils import timezone
+from datetime import datetime
 
 class Theft(models.Model):
     address = models.CharField(max_length=500)
     latitude = models.FloatField(null=True,blank = True)
     longitude = models.FloatField(null=True,blank = True)
 
-    theft_date = models.DateTimeField()
+    theft_date = models.DateTimeField(null=True, blank=True)
     registration_date = models.DateTimeField()
 
     def save(self, *args, **kwargs):
-        registration_date = timezone.now()
+        if not self.theft_date is None: 
+            self.theft_date = datetime.strptime(self.theft_date, "%d/%m/%Y")
+
+        self.registration_date = timezone.now()
         super(Theft, self).save(*args, **kwargs)
 
     def __unicode__(self):

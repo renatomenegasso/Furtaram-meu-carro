@@ -31,6 +31,7 @@ window.formAjax = function(){
 	function onAjaxcompĺete(e, response){
 		var form = e.target;
 		$(form).find('.' + FORM_ERROR_CLASS).removeClass(FORM_ERROR_CLASS);
+		
 		if(response.errors != null){
 			handleErrors(form, response.errors);
 		}
@@ -44,8 +45,8 @@ window.formAjax = function(){
 		var k, messages = [];
 		for(k in errors){
 			$(form[k]).addClass(FORM_ERROR_CLASS);
-			var message = form[k] ? label(k) + errors[k].join('<br>') : errors[k].join('<br>'); 
-			messages.push(message);
+			var msg = form[k] ? label(k) + errors[k].join('<br>') : errors[k].join('<br>'); 
+			messages.push(msg);
 		}
 		
 		messageInstance = new message(messages.join('<br>'), message.ERROR);
