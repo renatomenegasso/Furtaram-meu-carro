@@ -1,4 +1,4 @@
-window.lightbox = function(param){
+utls.lightbox = function(param){
 	var instance = this;
 	instance.defaults = {
 		minWidth: 400,
@@ -149,7 +149,7 @@ window.lightbox = function(param){
 	init(param);
 };
 
-lightbox.globalSetup = function(settings){
+utls.lightbox.globalSetup = function(settings){
 	$.extend(this.defaults, settings);
 };
 

@@ -11,8 +11,8 @@
 
 {% block content %}
 	<div id="occurences-map">
-		<div class="map-legend fr">
-			<p><small>Legenda</small></p>
+		<div class="map-legend">
+			<small>Legenda</small><br>
 			<img src="https://furtaram.s3-sa-east-1.amazonaws.com/img/stolen.png" width="15" alt="" class="first"> Carro roubado
 			<img src="https://furtaram.s3-sa-east-1.amazonaws.com/img/finded.png" width="15" alt=""> Carro encontrado
 		</div>
@@ -28,4 +28,31 @@
 			<span class="loading">carregando mapa...</span>
 		</div>
 	</div>
+
+	<nav>
+		<ul id="bottom-menu" class="clearfix">
+			<li>
+				<a href="/como-prevenir-roubos" class="transition como-prevenir">
+					<span>Como prevenir roubos</span>
+				</a>
+			</li>
+			<!--
+			<li>
+				<a href="/estatisticas-roubos" class="transition estatisticas">
+					<span>Estatísticas</span>
+				</a>
+			</li>
+			-->
+			<li>
+				<a href="#encontraram-meu-carro" class="transition encontraram">
+					<span>Acharam meu carro!</span>
+				</a>
+			</li>
+			<li>
+				<a href="/sobre-o-site" class="transition quem-somos">
+					<span>Quem somos</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
 {% endblock %}

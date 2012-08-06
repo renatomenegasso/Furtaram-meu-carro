@@ -1,6 +1,6 @@
 (function($){
 	var initPoint = {lat: -23.561383, lng: -46.656436},
-		stolenImg = "https://furtaram.s3-sa-east-1.amazonaws.com/img/stolen.png";
+		stolenImg = "https://furtaram.s3-sa-east-1.amazonaws.com/img/stolen-3.png";
 
 	var mainMap = null,
 		currentLightbox = null;
@@ -29,7 +29,7 @@
 	function setupLightboxOccurrence(){
 		$("#add-occurrence").click(function(e){
 			e.preventDefault();
-			currentLightbox = new lightbox({
+			currentLightbox = new utls.lightbox({
 				url:"/add-occurrence",
 				width: 800,
 				height:450
@@ -44,7 +44,7 @@
 		$(document).delegate("#add-occurrence-form", "ajaxcomplete", function(e, response){
 			if(response.success){
 				currentLightbox.close();
-				new message("Sua ocorrẽncia foi adicionada.");
+				new utls.message("Sua ocorrẽncia foi adicionada.");
 				var lat = parseFloat($("#lat").val()),
 					lng = parseFloat($("#lng").val());
 
@@ -141,10 +141,10 @@
 
         var image = new google.maps.MarkerImage(
               stolenImg,
-              new google.maps.Size(30, 30),
+              new google.maps.Size(25, 25),
               new google.maps.Point(0, 0),
-              new google.maps.Point(15, 15),
-              new google.maps.Size(30, 30));
+              new google.maps.Point(12.5, 12.5),
+              new google.maps.Size(25, 25));
 
 		marker.setIcon(image);
 		marker.setPosition(new google.maps.LatLng(lat, lng));

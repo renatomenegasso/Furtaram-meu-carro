@@ -1,5 +1,5 @@
-window.formAjax = function(){
-	var prototype = formAjax.prototype;
+utls.formAjax = function(){
+	var prototype = utls.formAjax.prototype;
 	var FORM_ERROR_CLASS = 'error';
 	var messageInstance = null;
 	
@@ -49,10 +49,10 @@ window.formAjax = function(){
 			messages.push(msg);
 		}
 		
-		messageInstance = new message(messages.join('<br>'), message.ERROR);
+		messageInstance = new utls.message(messages.join('<br>'), utls.message.ERROR);
 	}
 };
 
 $(function(){
-	new formAjax().globalInit();
+	new utls.formAjax().globalInit();
 });

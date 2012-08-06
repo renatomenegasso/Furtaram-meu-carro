@@ -1,66 +1,61 @@
-//form ajax
-window.formAjax = function(){
-	var prototype = formAjax.prototype;
-	var FORM_ERROR_CLASS = 'error';
-	var messageInstance = null;
-	
-	prototype.globalInit = function(selector){
-		$(document).delegate(selector || 'form.ajax', 'submit', onSubmit)
-					.delegate(selector || 'form.ajax', 'ajaxcomplete', onAjaxcompĺete);
-	};
+utls = window.utls || {};
 
-	prototype.execute = function(form){
-		if(!(form instanceof jQuery)) {form = $(form);}
-		form.trigger('submit');
-	};
+utls.message = function(text, type, timeInSecconds){
+	var instance = this;
+	instance.box = null;
 	
-	function onSubmit(e){
-		e.preventDefault();
+	instance.remove = function(){
+		instance.box.remove();
+	}
+	
+	function createBox(){
+		return $('<div class="message_box"><div class="message_inner"><span class="ico">&nbsp;</span><div class="text"></div></div><span class="close">X</span></div>');
+	}
+	
+	function showBox(message, type, timeInSecconds){
+		instance.box = createBox();
+		$('body').append(instance.box);
 		
-		if(messageInstance) messageInstance.remove();
+		instance.box.addClass(type)
+			.css('z-index', 999)
+			.hide()
+			.fadeIn(400)
+			.find('.text')
+			.html(message);
 		
-		var $form = $(this);
-		$form.find('.form_ajax_loader').show();
-				
-		var method = $form.attr('method').toLowerCase();
-		$[method]($form.attr('action'), $form.serialize(), function(response, isSuccess, httpReqObj){
-			$form.find('.form_ajax_loader').hide();
-			$form.trigger('ajaxcomplete', response);
+		centerBox(instance.box);
+		handleClose(instance.box);
+		
+		this.tiemout = setTimeout(function(){
+			instance.box.fadeOut();
+		}, (timeInSecconds || 9) * 1000);
+	}
+	
+	function handleClose(box) {
+		box.find('.close').click(function() {
+			instance.box.fadeOut(100, function(){
+				instance.box.remove();
+			});
 		});
 	}
 	
-	function onAjaxcompĺete(e, response){
-		var form = e.target;
-		$(form).find('.' + FORM_ERROR_CLASS).removeClass(FORM_ERROR_CLASS);
-		
-		if(response.errors != null){
-			handleErrors(form, response.errors);
-		}
+	function centerBox(box){
+		var l = ($(window).width() - box.width()) / 2;
+		box.css('left', l + 'px');
 	}
 	
-	function handleErrors(form, errors){
-		function label(k){
-			return ($(form[k]).prev('label').html() || k + ':');
-		}
-		
-		var k, messages = [];
-		for(k in errors){
-			$(form[k]).addClass(FORM_ERROR_CLASS);
-			var msg = form[k] ? label(k) + errors[k].join('<br>') : errors[k].join('<br>'); 
-			messages.push(msg);
-		}
-		
-		messageInstance = new message(messages.join('<br>'), message.ERROR);
-	}
+	showBox(text, type, timeInSecconds);
 };
 
-$(function(){
-	new formAjax().globalInit();
-});
+utls.message.ERROR = 'error';
+utls.message.SUCCESS = 'success';
+utls.message.WARNING = 'warning';
 
 
-// lightbox
-window.lightbox = function(param){
+
+
+
+utls.lightbox = function(param){
 	var instance = this;
 	instance.defaults = {
 		minWidth: 400,
@@ -211,7 +206,7 @@ window.lightbox = function(param){
 	init(param);
 };
 
-lightbox.globalSetup = function(settings){
+utls.lightbox.globalSetup = function(settings){
 	$.extend(this.defaults, settings);
 };
 
@@ -225,62 +220,71 @@ lightbox.globalSetup = function(settings){
 	}
 }(jQuery));
 
-// message
-window.message = function(text, type, timeInSecconds){
-	var instance = this;
-	instance.box = null;
+
+
+
+utls.formAjax = function(){
+	var prototype = utls.formAjax.prototype;
+	var FORM_ERROR_CLASS = 'error';
+	var messageInstance = null;
 	
-	instance.remove = function(){
-		instance.box.remove();
-	}
+	prototype.globalInit = function(selector){
+		$(document).delegate(selector || 'form.ajax', 'submit', onSubmit)
+					.delegate(selector || 'form.ajax', 'ajaxcomplete', onAjaxcompĺete);
+	};
+
+	prototype.execute = function(form){
+		if(!(form instanceof jQuery)) {form = $(form);}
+		form.trigger('submit');
+	};
 	
-	function createBox(){
-		return $('<div class="message_box"><div class="message_inner"><span class="ico">&nbsp;</span><div class="text"></div></div><span class="close">X</span></div>');
-	}
-	
-	function showBox(message, type, timeInSecconds){
-		instance.box = createBox();
-		$('body').append(instance.box);
+	function onSubmit(e){
+		e.preventDefault();
 		
-		instance.box.addClass(type)
-			.css('z-index', 999)
-			.hide()
-			.fadeIn(400)
-			.find('.text')
-			.html(message);
+		if(messageInstance) messageInstance.remove();
 		
-		centerBox(instance.box);
-		handleClose(instance.box);
-		
-		this.tiemout = setTimeout(function(){
-			instance.box.fadeOut();
-		}, (timeInSecconds || 9) * 1000);
-	}
-	
-	function handleClose(box) {
-		box.find('.close').click(function() {
-			instance.box.fadeOut(100, function(){
-				instance.box.remove();
-			});
+		var $form = $(this);
+		$form.find('.form_ajax_loader').show();
+				
+		var method = $form.attr('method').toLowerCase();
+		$[method]($form.attr('action'), $form.serialize(), function(response, isSuccess, httpReqObj){
+			$form.find('.form_ajax_loader').hide();
+			$form.trigger('ajaxcomplete', response);
 		});
 	}
 	
-	function centerBox(box){
-		var l = ($(window).width() - box.width()) / 2;
-		box.css('left', l + 'px');
+	function onAjaxcompĺete(e, response){
+		var form = e.target;
+		$(form).find('.' + FORM_ERROR_CLASS).removeClass(FORM_ERROR_CLASS);
+		
+		if(response.errors != null){
+			handleErrors(form, response.errors);
+		}
 	}
 	
-	showBox(text, type, timeInSecconds);
+	function handleErrors(form, errors){
+		function label(k){
+			return ($(form[k]).prev('label').html() || k + ':');
+		}
+		
+		var k, messages = [];
+		for(k in errors){
+			$(form[k]).addClass(FORM_ERROR_CLASS);
+			var msg = form[k] ? label(k) + errors[k].join('<br>') : errors[k].join('<br>'); 
+			messages.push(msg);
+		}
+		
+		messageInstance = new utls.message(messages.join('<br>'), utls.message.ERROR);
+	}
 };
 
-window.message.ERROR = 'error';
-window.message.SUCCESS = 'success';
-window.message.WARNING = 'warning';
+$(function(){
+	new utls.formAjax().globalInit();
+});
 
 
-//toggle fieldset
+
 (function($){
-	
 	function domLoaded(){
 		$(document).delegate("fieldset.toggle-set legend", "click", function(){
 			var $legend = $(this),
@@ -295,12 +299,10 @@ window.message.WARNING = 'warning';
 		});
 	}
 
-	$(domLoaded)
+	$(domLoaded);
 }(jQuery));
 
 
-
-//masked input
 /*
 	Masked Input plugin for jQuery
 	Copyright (c) 2007-2011 Josh Bush (digitalbush.com)

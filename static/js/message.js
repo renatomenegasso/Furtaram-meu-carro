@@ -1,4 +1,6 @@
-window.message = function(text, type, timeInSecconds){
+utls = window.utls || {};
+
+utls.message = function(text, type, timeInSecconds){
 	var instance = this;
 	instance.box = null;
 	
@@ -45,6 +47,6 @@ window.message = function(text, type, timeInSecconds){
 	showBox(text, type, timeInSecconds);
 };
 
-window.message.ERROR = 'error';
-window.message.SUCCESS = 'success';
-window.message.WARNING = 'warning';
+utls.message.ERROR = 'error';
+utls.message.SUCCESS = 'success';
+utls.message.WARNING = 'warning';
