@@ -1,6 +1,6 @@
 (function($){
 	var initPoint = {lat: -23.561383, lng: -46.656436},
-		stolenImg = "https://furtaram.s3-sa-east-1.amazonaws.com/img/stolen-3.png";
+		stolenImg = "https://furtaram.s3-sa-east-1.amazonaws.com/img/stolen.png";
 
 	var mainMap = null,
 		currentLightbox = null;
