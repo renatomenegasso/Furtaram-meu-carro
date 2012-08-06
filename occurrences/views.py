@@ -19,6 +19,7 @@ def add_occurrence_post(request):
         return JSONResponse({'errors':{'address':['Informe um endereço']}})
 
     theft = __populateObjFromRequest(Theft(), request)
+    theft.ip = __get_client_ip(request)
     theft.save()
 
     contact_info = __populateObjFromRequest(TheftContactInfo(), request)
@@ -37,6 +38,13 @@ def get_occurrences(request):
     occurrences = Theft.objects.filter(latitude__isnull=False, longitude__isnull=False).values('id', 'latitude', 'longitude')
     return JSONResponse({'occurrences':occurrences})
 
+def __get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
 
 def __populateObjFromRequest(obj, request):
     properties = dir(obj)

@@ -10,6 +10,8 @@ class Theft(models.Model):
     theft_date = models.DateTimeField(null=True, blank=True)
     registration_date = models.DateTimeField()
 
+    ip = models.CharField(max_length=16)
+
     def save(self, *args, **kwargs):
         if not self.theft_date is None: 
             self.theft_date = datetime.strptime(self.theft_date, "%d/%m/%Y")
