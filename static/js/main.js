@@ -64,7 +64,8 @@
 		var opts = {
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			zoom:16,
-			mapTypeControl:false
+			mapTypeControl:false,
+			center: new google.maps.LatLng(initPoint.lat, initPoint.lng)
 	    };
 		
 	    var map = new google.maps.Map($("#lightbox-map")[0], opts);
