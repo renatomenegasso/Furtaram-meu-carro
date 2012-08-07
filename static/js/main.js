@@ -16,9 +16,10 @@
 		var opts = {
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			zoom:11,
-			mapTypeControl:false
+			mapTypeControl:false,
+			center: new google.maps.LatLng(initPoint.lat, initPoint.lng)
 	    };
-		
+		//map.setCenter(new google.maps.LatLng(initPoint.lat, initPoint.lng));
 
 	    mainMap = new google.maps.Map($("#main-map")[0], opts);
 		centerMapInUserPosition(mainMap);
