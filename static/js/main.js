@@ -28,7 +28,6 @@
 		handleAddrField($("#search-field"), mainMap);
 	}
 	
-
 	function setupLightboxOccurrence(){
 		$("#add-occurrence").click(function(e){
 			e.preventDefault();
