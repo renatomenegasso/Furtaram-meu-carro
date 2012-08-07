@@ -4,7 +4,7 @@
 <div id="button-bar">
 	<section class="wrapper">
 		<span class="big">Informe onde seu carro foi roubado, e ajude a <strong class="highlight">evitar mais roubos</strong>.</span>
-		<button id="add-occurrence" class="big transition btn">Adicionar roubo ao mapa</button>
+		<button id="add-occurrence" class="big transition btn"  data-tracking="Botao,AdicionarRoubo">Adicionar roubo ao mapa</button>
 	</section>
 </div>
 {% endblock %}
@@ -18,7 +18,7 @@
 		</div>
 
 		<input type="text" id="search-field" placeholder="Buscar por bairro, rua, cep, etc.">
-		<button class="transition" id="search-btn">Buscar</button><br />
+		<button class="transition" id="search-btn" data-tracking="Botao,Buscar">Buscar</button><br />
 
 		<div class="description">
 			Veja abaixo os lugares com maior incidência de <strong class="highlight">roubo</strong>, onde é melhor <strong class="highlight">evitar estacionar</strong>:

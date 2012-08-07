@@ -10,6 +10,7 @@
 		renderMainMap();
 		setupLightboxOccurrence();
 		loadPoints();
+		tracking();
 	}
 	
 	function renderMainMap(){
@@ -90,13 +91,14 @@
 	    var currentMarker = null;
 
         google.maps.event.addListener(autocomplete, 'place_changed', function() {
-        	var place = autocomplete.getPlace();
+        	var place = autocomplete.getPlace(),
+        		lat, lng;
 	        if (place.geometry.viewport) {
 	        	map.fitBounds(place.geometry.viewport);
 	        } else {
 	        	map.setCenter(place.geometry.location);
 	        	map.setZoom(17);
-	        }
+	        } 
 
 	        if(!addMarker){
 	        	return;
@@ -159,6 +161,14 @@
 			for(var i = 0; i <  occurrences.length; i ++){
 				addStolenMarker(mainMap, occurrences[i].latitude, occurrences[i].longitude)
 			}
+		});
+	}
+
+	function tracking(){
+		$(document).delegate('[data-tracking]', 'click', function(e){
+			var attrs = $(this).attr('data-tracking').split(',');
+			attrs.unshift('_trackEvent');
+			_gaq.push(attrs);
 		});
 	}
 

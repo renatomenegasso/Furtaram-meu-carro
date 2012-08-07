@@ -1,7 +1,12 @@
 <div class="lightbox-inner add-occurrence">
 	<h2>Adicionar roubo ao mapa</h2>
 	
-	<div class="fl" id="lightbox-map">aguarde...</div>
+	<div class="fl">
+		<div id="lightbox-map">
+			aguarde...
+		</div>
+		<span>Você pode arrastar o marcador para o local desejado</span>
+	</div>
 
 	<div class="fl" id="add-corcurrence-form-container">
 		<form method="post" action="/add-occurrence-post" class="unrequired ajax" id="add-occurrence-form">
@@ -22,7 +27,7 @@
 			</fieldset>
 
 			<fieldset class="toggle-set closed">
-				<legend>[+] Informações para contato (opcional)</legend>
+				<legend data-tracking="Fieldset,Expandir,Contato">[+] Informações para contato (opcional)</legend>
 				<div class="clearfix">
 					<label>Email:</label>
 					<input type="text" name="email" /> <span class="field-tip">usuario@dominio</span>
@@ -35,7 +40,7 @@
 
 			</fieldset>
 			<fieldset class="toggle-set closed">
-				<legend>[+] Dados do veículo (opcional)</legend>
+				<legend data-tracking="Fieldset,Expandir,DadosVeiculo">[+] Dados do veículo (opcional)</legend>
 				
 				<div class="clearfix">
 					<label>Marca:</label>
@@ -58,8 +63,7 @@
 				</div>
 			</fieldset>
 
-			<input type="submit" class="btn big transition" value="Salvar" />
-
+			<input type="submit" class="btn big transition" value="Salvar" data-tracking="Botao,SalvarOcorrencia" />
 		</form>
 	</div>		
 </div>

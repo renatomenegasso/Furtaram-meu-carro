@@ -193,6 +193,7 @@ input[type=text], textarea{
 	background-image: -moz-linear-gradient(bottom, #09a5d5 34%,#0f8bb1 84%);
 	background-image: -webkit-linear-gradient(bottom, #09a5d5 34%,#0f8bb1 84%);
 	background-image: -ms-linear-gradient(bottom, #09a5d5 34%,#0f8bb1 84%);
+	min-width: 960px;
 }
 
 #header-container a{
@@ -230,6 +231,7 @@ input[type=text], textarea{
 	background: #08718f;
 	color:#fff;
 	padding:15px 0;
+	min-width: 960px;
 }
 
 #button-bar .highlight{
@@ -378,6 +380,7 @@ input[type=text], textarea{
 	background-image: -ms-linear-gradient(bottom, #065369 34%,#08718f 84%);
 	color:#fff;
 	padding:10px 0;
+	min-width: 960px;
 }
 
 #footer-container ul{
