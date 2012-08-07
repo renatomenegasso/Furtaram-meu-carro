@@ -137,6 +137,7 @@ p{
 }
 
 .btn{
+	background: #9bbb02;
 	background-image: linear-gradient(bottom, #9bbb02 34%,#cbf00d 84%);
 	background-image: -o-linear-gradient(bottom, #9bbb02 34%,#cbf00d 84%);
 	background-image: -moz-linear-gradient(bottom, #9bbb02 34%,#cbf00d 84%);
@@ -159,6 +160,7 @@ p{
 }
 
 .btn:active{
+	background: #9bbb02;
 	background-image: linear-gradient(bottom, #cbf00d 34%,#9bbb02 84%);
 	background-image: -o-linear-gradient(bottom, #cbf00d 34%,#9bbb02 84%);
 	background-image: -moz-linear-gradient(bottom, #9bbb02 34%,#cbf00d 84%);
@@ -185,6 +187,7 @@ input[type=text], textarea{
 
 #header-container{
 	color:#fff;
+	background: #0f8bb1;
 	background-image: linear-gradient(bottom, #09a5d5 34%,#0f8bb1 84%);
 	background-image: -o-linear-gradient(bottom, #09a5d5 34%,#0f8bb1 84%);
 	background-image: -moz-linear-gradient(bottom, #09a5d5 34%,#0f8bb1 84%);
@@ -345,6 +348,7 @@ input[type=text], textarea{
 	font-size:15px;
 	padding:10px 0;
 	color:#373833;
+	background: #9bbb02;
 	background-image: linear-gradient(bottom, #9bbb02 34%,#cbf00d 84%);
 	background-image: -o-linear-gradient(bottom, #9bbb02 34%,#cbf00d 84%);
 	background-image: -moz-linear-gradient(bottom, #9bbb02 34%,#cbf00d 84%);
