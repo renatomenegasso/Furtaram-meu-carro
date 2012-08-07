@@ -18,7 +18,8 @@
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			zoom:11,
 			mapTypeControl:false,
-			center: new google.maps.LatLng(initPoint.lat, initPoint.lng)
+			center: new google.maps.LatLng(initPoint.lat, initPoint.lng),
+			scrollwheel:false
 	    };
 		//map.setCenter(new google.maps.LatLng(initPoint.lat, initPoint.lng));
 
