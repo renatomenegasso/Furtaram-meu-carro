@@ -3,11 +3,13 @@
 		stolenImg = "https://furtaram.s3-sa-east-1.amazonaws.com/img/stolen.png";
 
 	var mainMap = null,
-		currentLightbox = null;
+		currentLightbox = null,
+		currentResults = null;
 
 	function init(){
 		setupAjax();
 		renderMainMap();
+		mainSearch();
 		setupLightboxOccurrence();
 		loadPoints();
 		tracking();
@@ -24,8 +26,70 @@
 
 	    mainMap = new google.maps.Map($("#main-map")[0], opts);
 		centerMapInUserPosition(mainMap);
+	}
 
-		handleAddrField($("#search-field"), mainMap);
+	function mainSearch(){
+		var $field = $("#search-field");
+		handleAddrField($field, mainMap);
+
+		var geocoder = new google.maps.Geocoder();
+
+		$("#search-btn").click(function(){
+			searchAddress($field.val(), geocoder);
+		});
+
+		$(document).delegate('ul.search-results a', 'click', function(e){
+			e.preventDefault();
+			currentLightbox.close();
+
+			var index = parseInt($(this).attr('data-index'));
+			mainMap.setCenter(currentResults[index].geometry.location);
+			mainMap.fitBounds(currentResults[index].geometry.viewport);
+		});
+	}
+
+	function searchAddress(addr, geocoder){
+		var instance = geocoder || new google.maps.Geocoder();
+
+		instance.geocode({address: addr}, function(results, status){
+			if(status === google.maps.GeocoderStatus.ZERO_RESULTS){
+				new utls.message("Endereço não encontrado", utls.message.ERROR);
+				return;
+			}
+
+			if(status != google.maps.GeocoderStatus.OK){
+				new utls.message("Erro ao buscar endereço", utls.message.ERROR);
+				return;
+			}
+
+			if(results.length > 1){
+				handleManyResults(results);
+				return;
+			}
+
+			mainMap.setCenter(results[0].geometry.location);
+			mainMap.fitBounds(results[0].geometry.viewport);
+		});
+	}
+
+	searchAddress('brigadeiro');
+
+	function handleManyResults(results){
+		currentResults = results;
+
+		var content = results.map(function(item, i){
+			return ['<a href="#result" data-index="', i, '" data-tracking="Endereco,Busca,Multiplosresultados">',
+						item.formatted_address, 
+					'</a>'].join('');
+
+		}).join('</li><li>');
+
+		content = ['<div class="lightbox-inner">',
+						'<h2>Foi encontrado mais de um endereço</h2>',
+						'<ul class="search-results"><li>', content, '</li></ul>',
+					'</div>'].join('');
+
+		currentLightbox = new utls.lightbox(content);
 	}
 	
 	function setupLightboxOccurrence(){
@@ -78,8 +142,6 @@
 			$("#lng").val(lng);
 		}
 
-		var geocoder = new google.maps.Geocoder();
-
 		var opts = {
 	    	types:['geocode'],
 	    	componentRestrictions: {country:'br'}
@@ -92,8 +154,8 @@
 	    var currentMarker = null;
 
         google.maps.event.addListener(autocomplete, 'place_changed', function() {
-        	var place = autocomplete.getPlace(),
-        		lat, lng;
+        	var place = autocomplete.getPlace();
+
 	        if (place.geometry.viewport) {
 	        	map.fitBounds(place.geometry.viewport);
 	        } else {
