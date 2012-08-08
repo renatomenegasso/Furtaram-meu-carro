@@ -72,8 +72,6 @@
 		});
 	}
 
-	searchAddress('brigadeiro');
-
 	function handleManyResults(results){
 		currentResults = results;
 
