@@ -100,6 +100,10 @@
 			});
 
 			$(document).bind("lightboxopened", function(e, lightbox){
+				if(!lightbox.content.find("#address-field").length){
+					return;
+				}
+				
 				var map = renderLightboxMap();
 				handleAddrField($("#address-field"), map, true);
 			});
@@ -153,6 +157,8 @@
 
         google.maps.event.addListener(autocomplete, 'place_changed', function() {
         	var place = autocomplete.getPlace();
+
+        	if(!place){ return; }
 
 	        if (place.geometry.viewport) {
 	        	map.fitBounds(place.geometry.viewport);
