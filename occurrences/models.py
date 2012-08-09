@@ -31,7 +31,6 @@ class TheftContactInfo(models.Model):
 class StolenCarInfo(models.Model):
     theft = models.ForeignKey(Theft, related_name="car")
 
-    brand = models.CharField(max_length=20, null=True, blank=True)
     model = models.CharField(max_length=20, null=True, blank=True)
     color = models.CharField(max_length=20, null=True, blank=True)
 
