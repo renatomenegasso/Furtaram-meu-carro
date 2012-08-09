@@ -2,8 +2,8 @@
 	border-radius:10px;
 }
 
-.lightbox-container .tl, .lightbox-container .bl, .lightbox-container .br, .lightbox-container .lightbox-close {
-	background-image: url(http://image.buscape.com/bui-bp7/lightbox/lightbox_borders.png);
+.lightbox-container .tl, .lightbox-container .bl, .lightbox-container .br, .lightbox-container .tr{
+	background-image: url(https://furtaram.s3-sa-east-1.amazonaws.com/img/lightbox-corners.png);
 	border:none;
 	height:15px;
 	position:absolute;
@@ -11,11 +11,11 @@
 }
 
 .lightbox-container .lightbox-wrapper{
-	background-image:url(http://image.buscape.com/bui-bp7/lightbox/lightbox_inner.png);
+	background-image:url(https://furtaram.s3-sa-east-1.amazonaws.com/img/lightbox-inner.png);
 }
 
 .lightbox-container .t, .lightbox-container .b, .lightbox-container .l, .lightbox-container .r{
-	background-image:url(http://image.buscape.com/bui-bp7/lightbox/lightbox_inner.png);
+	background-image:url(https://furtaram.s3-sa-east-1.amazonaws.com/img/lightbox-inner.png);
 	position:absolute;
 }
 
@@ -24,19 +24,19 @@
 .lightbox-container .l{ width:15px; height:100%; top:0px; left:-15px;}
 .lightbox-container .r{ width:15px; height:100%; top:0px; right:-15px;}
 
-.lightbox-container .tl{background-position: 0 -11px; top:-15px; left:-15px;}
-.lightbox-container .tr .lightbox-close-tr{
-	width:41px;
-	height:41px;
-	top: -27px;
-	right: -30px;
-	background-position:-45px -41px ;
-	text-indent:-9999em;
-	outline-width:0;
-	display:block;
+.lightbox-container .tl{background-position: 0 -31px; top:-15px; left:-15px;}
+.lightbox-container .tr{background-position: -15px -31px; top:-15px; right:-15px;}
+.lightbox-container .bl{background-position: 0 -15px;bottom:-15px;left:-15px;}
+.lightbox-container .br{background-position: -15px -15px;bottom:-15px;right:-15px;}
+
+.lightbox-close{
+	position:absolute;
+	right:25px;
+	top:15px;
+	text-decoration: none;
+	font-size: 20px;
+	color:#999;
 }
-.lightbox-container .bl{background-position: 0 -26px;bottom:-15px;left:-15px;}
-.lightbox-container .br{background-position: -15px -26px;bottom:-15px;right:-15px;}
 
 .lightbox-container .lightbox-loading{
 	background: #fff;
