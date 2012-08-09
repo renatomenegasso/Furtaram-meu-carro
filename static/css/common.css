@@ -218,10 +218,10 @@ input[type=text], textarea{
 
 #header-logo{
 	display:block;
-	width:281px;
+	width:290px;
 	height:75px;
 	text-indent: -9999px;
-	background: url("https://furtaram.s3-sa-east-1.amazonaws.com/img/furtaram-meu-carro.png") no-repeat;
+	background: url("https://furtaram.s3-sa-east-1.amazonaws.com/img/furtaram-meu-carro.png") no-repeat -9px 0;
 }
 
 #upper-menu{
@@ -254,7 +254,7 @@ input[type=text], textarea{
 #button-bar{
 	background: #08718f;
 	color:#fff;
-	padding:15px 0;
+	padding:15px 0 15px;
 	min-width: 960px;
 }
 
@@ -262,9 +262,13 @@ input[type=text], textarea{
 	color: #d7fe0f;
 }
 
+#button-bar span.big{
+	margin-left:65px;
+}
+
 #button-bar .btn{
 	position:relative;
-	right:-160px;
+	right:-90px;
 }
 
 #content{
