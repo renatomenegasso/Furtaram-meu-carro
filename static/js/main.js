@@ -240,7 +240,12 @@
 		$.get('/get-occurrences', function(response){
 			var occurrences = response.occurrences;
 			for(var i = 0; i <  occurrences.length; i ++){
-				addStolenMarker(mainMap, occurrences[i].latitude, occurrences[i].longitude)
+				var marker = addStolenMarker(mainMap, occurrences[i].latitude, occurrences[i].longitude);
+				google.maps.event.addListener(marker, 'click', function(evt){
+					mainMap.setCenter(evt.latLng);
+	        		mainMap.setZoom(17);
+	        		track(['MainMap', 'Marker', 'Click']);
+				});
 			}
 		});
 	}
