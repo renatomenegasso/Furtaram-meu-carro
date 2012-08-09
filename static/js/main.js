@@ -17,6 +17,9 @@
 	}
 	
 	function renderMainMap(){
+		var $mapContainer = $("#main-map");
+
+		if(!$mapContainer.length){ return; }
 		var opts = {
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			zoom:11,
@@ -25,13 +28,16 @@
 			scrollwheel:false
 	    };
 
-	    mainMap = new google.maps.Map($("#main-map")[0], opts);
+	    mainMap = new google.maps.Map($mapContainer[0], opts);
 		centerMapInUserPosition(mainMap);
 	}
 
 	function mainSearch(){
 		var $field = $("#search-field");
-		handleAddrField($field, mainMap);
+
+		if(!$field.length){return;}
+
+		handleAddrField($field, mainMap, ['Autocomplete', 'BuscaPrincipal']);
 
 		var geocoder = new google.maps.Geocoder();
 
@@ -92,7 +98,11 @@
 	}
 	
 	function setupLightboxOccurrence(){
-		$("#add-occurrence").click(function(e){
+		var $button = $("#add-occurrence");
+
+		if(!$button.length){return;}
+
+		$button.click(function(e){
 			e.preventDefault();
 			currentLightbox = new utls.lightbox({
 				url:"/add-occurrence",
@@ -106,7 +116,7 @@
 				}
 				
 				var map = renderLightboxMap();
-				handleAddrField($("#address-field"), map, true);
+				handleAddrField($("#address-field"), map, ['Autocomplete', 'BuscaLightbox'], true);
 			});
 		});
 
@@ -139,7 +149,7 @@
 	    return map;
 	}
 
-	function handleAddrField($field, map, addMarker) {
+	function handleAddrField($field, map, gaEvent, addMarker) {
 		function updateLatLng(lat, lng){
 			$("#lat").val(lat);
 			$("#lng").val(lng);
@@ -161,6 +171,8 @@
 
         	if(!place){ return; }
 
+        	track(gaEvent)
+
 	        if (place.geometry.viewport) {
 	        	map.fitBounds(place.geometry.viewport);
 	        } else {
@@ -181,6 +193,7 @@
 	        currentMarker.setCursor('move');
 
 	        google.maps.event.addListener(currentMarker, 'dragend', function(evt){
+	        	track(['Marker', 'Arrastado']);
 	        	updateLatLng(evt.latLng.lat(), evt.latLng.lng());
 			});
 
@@ -271,7 +284,13 @@
 			var attrs = $(this).attr('data-tracking').split(',');
 			attrs.unshift('_trackEvent');
 			_gaq.push(attrs);
+			console.log(attrs);
 		});
+	}
+
+	function track(attrs){
+		attrs.unshift('_trackEvent');
+		_gaq.push(attrs);
 	}
 
 	function setupAjax(){
