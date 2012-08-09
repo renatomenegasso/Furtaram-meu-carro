@@ -240,6 +240,17 @@ input[type=text], textarea{
 #upper-menu li #car-finded{color:#d7f347;font-size: 13px;}
 #upper-menu li #car-finded:hover{color:#fff;}
 
+.social-networks{
+	margin-top:15px;
+	display:none;
+	float:right;
+}
+
+.social-networks div{
+	float:left;
+	margin-right: 20px;
+}
+
 #button-bar{
 	background: #08718f;
 	color:#fff;

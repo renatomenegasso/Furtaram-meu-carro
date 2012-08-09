@@ -13,6 +13,7 @@
 		setupLightboxOccurrence();
 		loadPoints();
 		tracking();
+		socialNetworks();
 	}
 	
 	function renderMainMap(){
@@ -229,6 +230,38 @@
 				addStolenMarker(mainMap, occurrences[i].latitude, occurrences[i].longitude)
 			}
 		});
+	}
+
+	function socialNetworks(){
+		$(window).load(function(){
+			facebook();
+			twitter();
+			setTimeout(function(){
+				$('div.social-networks').fadeIn();
+			}, 3000);
+		});
+	}
+
+	function facebook(){
+		$('body').append('<div id="fb-root"></div>');
+
+		(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=481213371891727";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	}
+
+	function twitter(){
+		(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//platform.twitter.com/widgets.js";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'twitter-jssdk'));
 	}
 
 	function tracking(){
