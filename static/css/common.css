@@ -220,9 +220,9 @@ input[type=text], textarea{
 #header-logo{
 	display:block;
 	width:290px;
-	height:75px;
+	height:80px;
 	text-indent: -9999px;
-	background: url("https://furtaram.s3-sa-east-1.amazonaws.com/img/furtaram-meu-carro.png") no-repeat -9px 0;
+	background: url("https://furtaram.s3-sa-east-1.amazonaws.com/img/furtaram-meu-carro-beta.png") no-repeat -9px 0;
 }
 
 #upper-menu{
