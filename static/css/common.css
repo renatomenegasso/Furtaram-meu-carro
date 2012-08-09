@@ -189,6 +189,7 @@ input[type=text], textarea{
 }
 
 .lightbox-inner{padding:15px;}
+.lightbox-inner h2{text-align: left;}
 
 /* ----- */
 
@@ -262,13 +263,10 @@ input[type=text], textarea{
 	color: #d7fe0f;
 }
 
-#button-bar span.big{
-	margin-left:65px;
-}
 
 #button-bar .btn{
 	position:relative;
-	right:-90px;
+	right:-165px;
 }
 
 #content{
