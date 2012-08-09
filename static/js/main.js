@@ -234,11 +234,13 @@
 
 	function socialNetworks(){
 		$(window).load(function(){
-			facebook();
-			twitter();
 			setTimeout(function(){
-				$('div.social-networks').fadeIn();
-			}, 3000);
+				facebook();
+				twitter();
+				setTimeout(function(){
+					$('div.social-networks').fadeIn();
+				}, 2500);
+			}, 500);
 		});
 	}
 
