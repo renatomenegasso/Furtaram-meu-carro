@@ -495,6 +495,7 @@ fieldset.closed span{display:none;}
 
 #add-corcurrence-form-container{width:450px;}
 
+/* ---- Tabelas -- */
 table{
 	width: 600px;
 	border-style: inset;
@@ -513,4 +514,34 @@ table th{
 table td{
 	border:1px solid #373833;
 	border-style: inset;
+}
+
+
+
+/* ---- Tooltips -- */
+
+span[data-tip]{
+	position:relative;
+	color:#8bbd0c;
+	cursor: pointer;
+}
+
+span[data-tip] .tip{display: none;}
+span[data-tip]:hover .tip{display: block;}
+
+.tip{
+	position:absolute;
+	display: block;
+	width:170px;
+	height:auto;
+	top:-20px;
+	left:10px;
+	color:#a47015;
+	font-size: 11px;
+	border:2px solid #ca8f23;
+	background: #fefbf1;
+	border-radius: 4px;
+	padding:5px;
+	z-index:99;
+	cursor: text;
 }

@@ -13,6 +13,7 @@
 		setupLightboxOccurrence();
 		loadPoints();
 		tracking();
+		tollTips();
 		socialNetworks();
 	}
 	
@@ -247,6 +248,13 @@
 	        		track(['MainMap', 'Marker', 'Click']);
 				});
 			}
+		});
+	}
+
+	function tollTips(){
+		$('span[data-tip]').each(function(){
+			var $link = $(this);
+			$link.append('<span class="tip">' + $link.attr('data-tip') + '</span>');
 		});
 	}
 
