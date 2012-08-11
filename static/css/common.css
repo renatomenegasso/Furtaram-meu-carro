@@ -104,7 +104,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: bold; }
 ::-moz-selection{ background:#8bbd0c; color:#fff; text-shadow: none; }
 ::selection { background:#8bbd0c; color:#fff; text-shadow: none; }
 
-body{font:12px Helvetica,Arial,sans-serif;background:#fff;}
+body{font:13px Arial,Helvetica,sans-serif;background:#fff;}
 
 nav ul li{float:left;}
 
@@ -129,12 +129,13 @@ h1{
 
 h2{
 	color:#8bbd0c;
-	font-size:18px;
+	font-size:20px;
 	margin-bottom:15px;
 }
 
 h3{
 	margin:10px 0;
+	font-size: 15px;
 }
 
 p{
@@ -484,4 +485,32 @@ fieldset.closed span{display:none;}
 	margin-right: 15px;
 }
 
+.map-info{
+	display: block;
+	margin-top: 15px;
+	font-weight: bold;
+	max-width: 300px;
+	font-size:11px;
+}
+
 #add-corcurrence-form-container{width:450px;}
+
+table{
+	width: 600px;
+	border-style: inset;
+}
+
+table th,table td{
+	padding:3px 10px 3px 5px;
+}
+
+table th{
+	background: #373833;
+	color:#fff;
+	text-align: left;
+}
+
+table td{
+	border:1px solid #373833;
+	border-style: inset;
+}

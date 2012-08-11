@@ -1,7 +1,124 @@
 {% extends "includes/wrapper.html" %}
-{% block head %}<title>Furtaram meu carro - Estatísticas de roubos</title>{% endblock %}
+{% block head %}<title>Furtaram meu carro - Estatísticas de roubos de carros</title>{% endblock %}
 
 {% block content %}
-	<h2>Estatísticas</h2>
-	Aguarde, em breve.
+	<h2>Estatísticas de roubos</h2>
+	<p>
+		É importante saber se o veículo que vocẽ tem (ou deseja adquirir) é visado pelos ladrões de automóveis.
+		Se seu veículo for muito visado, você deve tomar certos cuidados a mais (como por exemplo instalar um dispositivo de segurança como alarme, rastreador) para diminuir as chances de ter o seu bem furtado/roubado.
+	</p>
+	<p>
+		Nós do <a href="/" data-tracking="Estatisticas,home">Furtaram meu carro</a> separamos algumas informações que podem ser úteis.
+	</p>
+	<p>
+		Todos os dados estatísticos foram extraídos do <a href="http://www.susep.gov.br/" data-tracking="Estatisticas,LinkSusep" target="_blank" rel="nofollow">SUSEP</a>, o órgão do governo brasileiro responsável pelo controle e fiscalização do mercado de seguros.
+	</p>
+
+	<p>Segundo o <a href="http://www.susep.gov.br/" data-tracking="Estatisticas,LinkSusep" target="_blank" rel="nofollow">SUSEP</a>, os dados tem como base as <strong>apólices de seguradoras vigentes e sinistros ocorridos</strong>, informados pelo mercado segurador no ultimo semestre (o mercado segurador envia a informação semestralmente).</p>
+
+	<h3>Maior índice de roubos</h3>
+
+	<table data-chart="maior-indice" data-color="#08718f">
+		<tr>
+			<th>Carro</th>
+			<th>Indice de roubo/furtos</th>
+		</tr>
+		<tr>
+			<td>VW VOLKSWAGEN GOL 1.0</td>
+			<td>1.212</td>
+		</tr>
+		<tr>
+			<td>FIAT PALIO 1.0</td>
+			<td>1.066</td>
+		</tr>
+		<tr>
+			<td>FIAT UNO 1.0</td>
+			<td>1.403</td>
+		</tr>
+		<tr>
+			<td>GM CHEVROLET CELTA 1.0</td>
+			<td>0.674</td>
+		</tr>
+		<tr>
+			<td>GM CHEVROLET CORSA 1.0</td>
+			<td>0.674</td>
+		</tr>
+		<tr>
+			<td>VW VOLKSWAGEN GOL ACIMA DE 1.0</td>
+			<td>1.43</td>
+		</tr>
+	</table>
+
+	<h3>Quantidade de sinistros</h3>
+
+	<table data-chart="quantidade-sinistros" data-color="#9bbb02">
+		<tr>
+			<th>Carro</th>
+			<th>Nº de sinistros</th>
+		</tr>
+		<tr>
+			<td>VW VOLKSWAGEN GOL 1.0</td>
+			<td>4385</td>
+		</tr>
+		<tr>
+			<td>FIAT PALIO 1.0</td>
+			<td>3544</td>
+		</tr>
+		<tr>
+			<td>FIAT UNO 1.0</td>
+			<td>2680</td>
+		</tr>
+		<tr>
+			<td>GM CHEVROLET CELTA 1.0</td>
+			<td>2124</td>
+		</tr>
+		<tr>
+			<td>GM CHEVROLET CORSA 1.0</td>
+			<td>1874</td>
+		</tr>
+		<tr>
+			<td>VW VOLKSWAGEN GOL ACIMA DE 1.0</td>
+			<td>1374</td>
+		</tr>
+	</table>
+
+	<h3>Exposição (?)</h3>
+
+	<table data-chart="exposicao" data-color="#373833">
+		<tr>
+			<th>Carro</th>
+			<th>Exposição</th>
+		</tr>
+		<tr>
+			<td>VW VOLKSWAGEN GOL 1.0</td>
+			<td>361731</td>
+		</tr>
+		<tr>
+			<td>FIAT PALIO 1.0</td>
+			<td>332434</td>
+		</tr>
+		<tr>
+			<td>FIAT UNO 1.0</td>
+			<td>191016</td>
+		</tr>
+		<tr>
+			<td>GM CHEVROLET CELTA 1.0</td>
+			<td>249241</td>
+		</tr>
+		<tr>
+			<td>GM CHEVROLET CORSA 1.0</td>
+			<td>277964</td>
+		</tr>
+		<tr>
+			<td>VW VOLKSWAGEN GOL ACIMA DE 1.0</td>
+			<td>96077</td>
+		</tr>
+	</table>
+
+
+{% endblock %}
+
+{% block js %}
+	<script src="//code.highcharts.com/2.2.0/highcharts.js"></script>
+	<script src="/s/js/estatisticas.js" type="text/javascript"></script>
 {% endblock %}
