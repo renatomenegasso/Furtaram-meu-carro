@@ -9,10 +9,12 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
 	{% block head %}<title>Furtaram meu carro - Veja onde há mais furtos de carro.</title>{% endblock %}
-	<meta name="description" content="Saiba onde ocorre mais roubos de carros, onde é perigoso estacionar, como prevenir roubos, além de poder informar o roubo ou furto do seu carro e indicar para outras pessoas as regiões perigosas!" />
 
+	{% block metakeys %}
+	<meta name="description" content="Saiba onde ocorre mais roubos de carros, onde é perigoso estacionar, como prevenir roubos, além de poder informar o roubo ou furto do seu carro e indicar para outras pessoas as regiões perigosas!" />
 	<meta name="keywords" content="roubo de carros, furto de carros, denuncia, onde estacionar, prevenção de roubos, informar roubo">
-	
+	{% endblock %}
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<!--[if lte IE 8]>
