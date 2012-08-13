@@ -106,6 +106,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: bold; }
 
 body{font:13px Arial,Helvetica,sans-serif;background:#fff;}
 
+ul li{margin-bottom: 10px;}
 nav ul li{float:left;}
 
 nav a{text-decoration: none;}
@@ -142,6 +143,8 @@ p{
 	text-align: justify;
 	margin-bottom: 15px;
 }
+
+
 
 .transition, .transition *{
 	-webkit-transition:all 0.3s;
