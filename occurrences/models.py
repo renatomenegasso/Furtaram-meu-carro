@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils import timezone
-from datetime import datetime
 
 class Theft(models.Model):
     address = models.CharField(max_length=500)
@@ -13,9 +12,6 @@ class Theft(models.Model):
     ip = models.CharField(max_length=16)
 
     def save(self, *args, **kwargs):
-        if not self.theft_date is None: 
-            self.theft_date = datetime.strptime(self.theft_date, "%d/%m/%Y")
-
         self.registration_date = timezone.now()
         super(Theft, self).save(*args, **kwargs)
 

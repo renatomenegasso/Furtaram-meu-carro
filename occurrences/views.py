@@ -5,6 +5,7 @@ from django.template import loader
 from django.template.context import RequestContext
 from jsonui.response import JSONResponse
 from occurrences.models import Theft, TheftContactInfo, StolenCarInfo
+from datetime import datetime
 
 def add_occurrence(request):
 
@@ -49,6 +50,7 @@ def __get_client_ip(request):
 def __populateObjFromRequest(obj, request):
     properties = dir(obj)
     has_field_filled = False
+
     for field in properties:
         if not hasattr(obj, field):
             continue
@@ -56,7 +58,12 @@ def __populateObjFromRequest(obj, request):
         if request.POST.has_key(field):
             if request.POST.get(field) != "":
                 has_field_filled = True
-                setattr(obj, field, request.POST.get(field))
+
+                #TODO: ver como fazer isso direito
+                if field.find("_date") > -1:
+                    setattr(obj, field, datetime.strptime(request.POST.get(field), "%d/%m/%Y"))
+                else:
+                    setattr(obj, field, request.POST.get(field))
             else:
                 setattr(obj, field, None)
     

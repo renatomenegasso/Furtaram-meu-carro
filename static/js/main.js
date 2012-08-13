@@ -128,11 +128,20 @@
 				var lat = parseFloat($("#lat").val()),
 					lng = parseFloat($("#lng").val());
 
-				mainMap.setCenter(new google.maps.LatLng(lat, lng));
-				mainMap.setZoom(16);
-				setTimeout(function(){
-					addStolenMarker(mainMap, lat, lng);
-				}, 1000);
+
+				if(isNaN(lat) || isNaN(lng)){
+					mainMap.setZoom(11);
+					centerMapInUserPosition(mainMap);
+
+					lat = initPoint.lat;
+					lng = initPoint.lng;
+				} else {
+					mainMap.setCenter(new google.maps.LatLng(lat, lng));
+					mainMap.setZoom(16);
+					setTimeout(function(){
+						addStolenMarker(mainMap, lat, lng);
+					}, 1000);
+				}
 			}
 		});
 	}
@@ -258,12 +267,12 @@
 		});
 	}
 
-	var socialReady = false;
 	function socialNetworks(){
 		$(window).load(function(){
 			setTimeout(function(){
 				facebook();
 				twitter();
+				googlePlus();
 			}, 500);
 		});
 	}
@@ -276,14 +285,6 @@
 		  if (d.getElementById(id)) return;
 		  js = d.createElement(s); js.id = id;
 		  js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=481213371891727";
-		  js.onload = function(){
-		  	if(!socialReady){
-		  		socialReady = true;
-		  		return;
-		  	}
-
-		  	showSocialBoxes();
-		  }
 		  fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));
 	}
@@ -294,27 +295,24 @@
 		  if (d.getElementById(id)) return;
 		  js = d.createElement(s); js.id = id;
 		  js.src = "//platform.twitter.com/widgets.js";
-		  js.onload = function(){
-		  	if(!socialReady){
-		  		socialReady = true;
-		  		return;
-		  	} 
-		  	showSocialBoxes();
-		  }
 		  ttjs.parentNode.insertBefore(js, ttjs);
 		}(document, 'script', 'twitter-jssdk'));
 	}
 
-	function showSocialBoxes(){
-		$('div.social-networks').show();
-	}
+	function googlePlus(){
+		window.___gcfg = {lang: 'pt-BR'};
 
+		(function() {
+	    	var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	    	po.src = 'https://apis.google.com/js/plusone.js';
+	    	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	}
+	
 	function tracking(){
 		$(document).delegate('[data-tracking]', 'click', function(e){
 			var attrs = $(this).attr('data-tracking').split(',');
-			attrs.unshift('_trackEvent');
-			_gaq.push(attrs);
-			console.log(attrs);
+			track(attrs);
 		});
 	}
 
