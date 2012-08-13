@@ -244,13 +244,16 @@ input[type=text], textarea{
 
 .social-networks{
 	margin-top:15px;
-	display:none;
 	float:right;
 }
 
 .social-networks div{
-	float:left;
-	margin-right: 20px;
+	float:left!important;
+	margin-right: 20px!important;
+}
+
+.social-networks #___plusone_0{
+	width:55px!important;
 }
 
 #button-bar{
