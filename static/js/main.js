@@ -128,11 +128,20 @@
 				var lat = parseFloat($("#lat").val()),
 					lng = parseFloat($("#lng").val());
 
-				mainMap.setCenter(new google.maps.LatLng(lat, lng));
-				mainMap.setZoom(16);
-				setTimeout(function(){
-					addStolenMarker(mainMap, lat, lng);
-				}, 1000);
+
+				if(isNaN(lat) || isNaN(lgn)){
+					mainMap.setZoom(11);
+					centerMapInUserPosition(mainMap);
+					
+					lat = initPoint.lat;
+					lng = initPoint.lng;
+				} else {
+					mainMap.setCenter(new google.maps.LatLng(lat, lng));
+					mainMap.setZoom(16);
+					setTimeout(function(){
+						addStolenMarker(mainMap, lat, lng);
+					}, 1000);
+				}
 			}
 		});
 	}
