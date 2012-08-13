@@ -129,10 +129,10 @@
 					lng = parseFloat($("#lng").val());
 
 
-				if(isNaN(lat) || isNaN(lgn)){
+				if(isNaN(lat) || isNaN(lng)){
 					mainMap.setZoom(11);
 					centerMapInUserPosition(mainMap);
-					
+
 					lat = initPoint.lat;
 					lng = initPoint.lng;
 				} else {
@@ -312,9 +312,7 @@
 	function tracking(){
 		$(document).delegate('[data-tracking]', 'click', function(e){
 			var attrs = $(this).attr('data-tracking').split(',');
-			attrs.unshift('_trackEvent');
-			_gaq.push(attrs);
-			console.log(attrs);
+			track(attrs);
 		});
 	}
 
