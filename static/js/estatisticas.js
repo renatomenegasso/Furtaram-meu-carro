@@ -27,7 +27,7 @@
 			$table.find('tr').find('td:eq(' + (i + 1) + ')').each(function(){
 				data.push(parseFloat($(this).text()));
 			});
-			console.log(data);
+			
 			return {name: $cell.text(), data:data}
 		});
 

@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from django.views.generic.simple import direct_to_template
+from django.views.generic.simple import direct_to_template, redirect_to
 
 admin.autodiscover()
 
@@ -11,6 +11,8 @@ urlpatterns = patterns('',
     url(r'^get-occurrences$', 'occurrences.views.get_occurrences'),
     (r'^sobre-o-site$', direct_to_template, {'template': 'sobre.html'}),
     (r'^como-prevenir-roubos$', direct_to_template, {'template': 'como-prevenir.html'}),
-    url(r'^estatisticas-de-roubos$', 'furtarammeucarro.views.estatisticas'),
+     (r'^estatisticas-de-roubos$', redirect_to, {'url': '/carros-mais-roubados'}),
+    url(r'^carros-mais-roubados$', 'furtarammeucarro.views.estatisticas'),
+
     url(r'^admin/', include(admin.site.urls)),
 )
