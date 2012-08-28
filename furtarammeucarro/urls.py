@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     url(r'^get-occurrences$', 'occurrences.views.get_occurrences'),
     (r'^sobre-o-site$', direct_to_template, {'template': 'sobre.html'}),
     (r'^como-prevenir-roubos$', direct_to_template, {'template': 'como-prevenir.html'}),
+    (r'^roubos$', 'occurrences.views.stolen_list'),
      (r'^estatisticas-de-roubos$', redirect_to, {'url': '/carros-mais-roubados'}),
     url(r'^carros-mais-roubados$', 'furtarammeucarro.views.estatisticas'),
 

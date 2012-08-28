@@ -551,3 +551,19 @@ span[data-tip]:hover .tip{display: block;}
 	z-index:99;
 	cursor: text;
 }
+
+/* ---- listagem de carros roubados ---- */
+#theft-list{
+	list-style-type: none;
+}
+
+#theft-list li{
+	background: #ededed;
+	padding:10px;
+	width:50%;
+	border-radius:5px;
+}
+
+#theft-list li:hover{
+	background: #ddd;
+}

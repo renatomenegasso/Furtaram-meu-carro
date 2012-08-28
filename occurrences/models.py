@@ -11,6 +11,11 @@ class Theft(models.Model):
 
     ip = models.CharField(max_length=16)
 
+    @property
+    def car_info(self):
+        cars = self.car.all()
+        return cars[0] if len(cars) > 0 else ""
+
     def save(self, *args, **kwargs):
         self.registration_date = timezone.now()
         super(Theft, self).save(*args, **kwargs)
@@ -33,3 +38,11 @@ class StolenCarInfo(models.Model):
     license_plate = models.CharField(max_length=8, null=True, blank=True)
 
     others = models.CharField(max_length=2000, null=True, blank=True)
+
+    def __unicode__(self):
+        if self.license_plate == "":
+            return self.model
+
+        return "%s - %s" % (self.model, self.license_plate)
+
+        

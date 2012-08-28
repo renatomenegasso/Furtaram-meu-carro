@@ -35,6 +35,13 @@ def add_occurrence_post(request):
 
     return JSONResponse({'success':True})
 
+def stolen_list(request):
+    t = loader.get_template('roubos.html')
+    c = RequestContext(request, {
+        "thefts": Theft.objects.extra(order_by = ['-id'])
+    })
+    return HttpResponse(t.render(c))
+
 def get_occurrences(request):
     occurrences = Theft.objects.filter(latitude__isnull=False, longitude__isnull=False).values('id', 'latitude', 'longitude')
     return JSONResponse({'occurrences':occurrences})
