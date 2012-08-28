@@ -40,8 +40,11 @@ class StolenCarInfo(models.Model):
     others = models.CharField(max_length=2000, null=True, blank=True)
 
     def __unicode__(self):
-        if self.license_plate == "":
-            return self.model
+        if self.model is None:
+            return "-"
+
+        if self.license_plate is None:
+            return unicode(self.model)
 
         return "%s - %s" % (self.model, self.license_plate)
 

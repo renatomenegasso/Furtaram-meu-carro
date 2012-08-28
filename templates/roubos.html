@@ -10,8 +10,10 @@
 	<ul id="theft-list" class="transition">
 		{% for theft in thefts %}
 		<li>
-			{{ theft.address }}<br />
-			<strong>{{ theft.car_info }}</strong>
+			Endereço: {{ theft.address }}<br />
+			{% if theft.car_info != "" %}
+			Veículo: <strong>{{ theft.car_info }}</strong>
+			{% endif %}
 		</li>
 		{% endfor %}
 	</ul>
