@@ -1,0 +1,22 @@
+{% extends "includes/wrapper.html" %}
+{% block head %}<title>Furtaram meu carro - Roubos informados</title>{% endblock %}
+
+{% block content %}
+	<h2>Roubos cadastrados</h2>
+	<p>
+		Segue abaixo a lista de roubos cadastrados no site, que estão no mapa principal. Qualquer informação sobre o veículo roubado, informe a placa a polícia, e também avise o site, através do email <a href="mailto:contato@furtarammeucarro.com.br">contato@furtarammeucarro.com.br</a>
+	</p>
+
+	<ul id="theft-list" class="transition">
+		{% for theft in thefts %}
+		<li>
+			{{ theft.address }}<br />
+			<strong>{{ theft.car_info }}</strong>
+		</li>
+		{% endfor %}
+	</ul>
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}
